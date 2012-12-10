@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+{%load i18n content_tags%}
+{%block headtitle%}{{object.title}}{%endblock%}
+{%block extra_head%}
+{% ifnotequal object.images.count 0%}
+<link href="/sitemedia/css/slimbox2.css" rel="stylesheet" type="text/css" />
+{%endifnotequal%}
+{%endblock%}
+{% block illustration%}{%if object.poster%}background-image:url({{object.poster.get_wide_url}}){%else%}{{block.super}}{%endif%}{%endblock%}
+{%block breadcrumbs%}\ <a href="{% url production_list%}">{%trans 'Productions'%}</a>{%endblock%}
+{%block rightside%}
+{% for show in object.presentations.all%}
+{%if forloop.first%}<h3>{%trans 'Upcoming Shows'%}</h3><ul>{%endif%}
+<li>{{show.venue}} | {{show.date_time|date:"j M, H\hi\m"}}</li>
+{%if forloop.last%}</ul>{%endif%}
+{%endfor%}
+{%endblock %}
+{%block content%}
+<h1>{{object.title}}</h1>
+{% for part in object.cast.all%}
+{%if part.role.is_artistic%}<img class="face" src="{{part.person.photo.get_face_url}}" alt="{{part.person.name}}"/>{%endif%}
+{%endfor%}
+{{object.synopsis|safe}}
+{% for img in object.images.all%}
+<a href="{{img.get_display_url}}" rel="lightbox_grp" title="{{img.title}}"><img src="{{img.get_mini_url}}" alt="{{img.title}}"/></a>
+{%endfor%}
+{#casts#}
+<h3>{%trans 'Casts and Credits'%}</h3>
+{%regroup object.cast.all by role as casts%}
+<dir>
+{%for cast in casts%}
+<strong>{{cast.grouper}}</strong>: {%for player in cast.list%}{%if not forloop.first%}, {%endif%}{{player.person}}{%endfor%}
+{%endfor%}
+</dir>
+{# sponsoring and support#}
+{%regroup object.sponsors.all by support_type as sponsorgroups%}
+{%for sg in sponsorgroups%}
+<div class="sponsor"><br />{{sg.grouper}}:<br />
+{%for spcr in sg.list%}<img src="{{spcr.sponsor.logo.get_logo1_url}}" alt="{{spcr.sponsor}}" />{%endfor%}
+</div>
+{%endfor%}
+{%endblock%}
+{%block extra_foot %}
+{% ifnotequal object.images.count 0%}
+<script type="text/javascript" src="/sitemedia/js/slimbox2.js"></script>
+{%endifnotequal%}
+{{block.super}}
+{%endblock %}

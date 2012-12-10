@@ -1,0 +1,163 @@
+[
+    {
+        "pk": 1, 
+        "model": "content.article", 
+        "fields": {
+            "rght": 2, 
+            "weight": 1, 
+            "lft": 1, 
+            "keywords": "", 
+            "is_gallery": false, 
+            "title": "Artigo de teste", 
+            "menu": "H", 
+            "tree_id": 1, 
+            "date_pub": "2011-06-29", 
+            "body": "<p>Escrever esta frase muitas vezes, escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes.&nbsp;</p>\r\n<p>Escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes, &nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes,&nbsp;&nbsp;escrever esta frase muitas vezes.</p>\r\n<p>.</p>", 
+            "parent": null, 
+            "is_highlight": false, 
+            "images": [
+                49, 
+                30, 
+                22
+            ], 
+            "illustration": null, 
+            "is_public": true, 
+            "slug": "artigo-de-teste", 
+            "is_index": false, 
+            "level": 0, 
+            "modified": "2012-11-16 00:06:35", 
+            "short_title": "teste", 
+            "extra_style": "", 
+            "extra_script": "", 
+            "modifier": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "content.article", 
+        "fields": {
+            "rght": 2, 
+            "weight": 2, 
+            "lft": 1, 
+            "keywords": "", 
+            "is_gallery": false, 
+            "title": "Arquente - Associa\u00e7\u00e3o Cultural", 
+            "menu": "", 
+            "tree_id": 2, 
+            "date_pub": "2011-07-08", 
+            "body": "<p>A ArQuente - Associa&ccedil;&atilde;o Cultural - &eacute; a constitui&ccedil;&atilde;o formal, em 2006, de um colectivo entretando nascido em 2002</p>\r\n<p>Tem-se dedicado desde a sua forma&ccedil;&atilde;o ao desenvolvimento de actividades performativas e no &acirc;mbito das artes visuais, e a uma continuada actividade formativa.</p>\r\n<p>A sua primeira apresenta&ccedil;&atilde;o p&uacute;blica reflecte o trabalho formativo e criativo desenvolvido com Helena Flor, com o t&iacute;tulo <span style=\"font-style: italic;\">E &eacute; por isso que sentimos pena</span>.</p>\r\n<p>Seguiram-se forma&ccedil;&atilde;o e produ&ccedil;&otilde;es v&aacute;rias. Convidou artistas-formadores para a coordena&ccedil;&atilde;o de ateli&ecirc;s como <a title=\"O Rumo do Fumo\" href=\"http://www.orumodofumo.com/\" target=\"_blank\">Miguel Pereira</a>, Vit&oacute;ria Horta, John Mowat, <a title=\"Th&eacute;&acirc;tre du Soleil\" href=\"http://www.theatre-du-soleil.fr/thsol/index.php\" target=\"_blank\">Juliana Carneiro Cunha</a>, Adriana Esberrad, <a title=\"Blog\" href=\"http://www.margarida-mestre.blogspot.com/\" target=\"_blank\">Margarida Mestre</a>, Regina G&ouml;erger (Dan&ccedil;a But&ocirc;), <a title=\"Projecto Ru&iacute;nas\" href=\"http://projectoruinas.blogspot.com/\" target=\"_blank\">Francisco Campos</a>, Helena Fl&ocirc;r.</p>\r\n<p>Convidou tamb&eacute;m criadores para a direc&ccedil;&atilde;o de projectos performativos, referindo-se, nomeadamente, Helena Flor, Susana Vidal, <a title=\"Blog\" href=\"http://moreallofme.blogspot.com/\" target=\"_blank\">Andr&eacute; Murra&ccedil;as</a>, Francisco Campos, <a title=\"Senzatempo Teatrodanza\" href=\"http://senzatempo.es/\" target=\"_blank\">In&eacute;s Boza</a>, Miguel Pereira, Gil Silva.</p>\r\n<p>&nbsp;</p>", 
+            "parent": null, 
+            "is_highlight": false, 
+            "images": [
+                33, 
+                27, 
+                15, 
+                9
+            ], 
+            "illustration": 15, 
+            "is_public": true, 
+            "slug": "", 
+            "is_index": false, 
+            "level": 0, 
+            "modified": "2011-10-10 15:13:04", 
+            "short_title": "Arquente", 
+            "extra_style": "", 
+            "extra_script": "", 
+            "modifier": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "content.article", 
+        "fields": {
+            "rght": 2, 
+            "weight": 3, 
+            "lft": 1, 
+            "keywords": "", 
+            "is_gallery": false, 
+            "title": "Manual de Instru\u00e7\u00f5es para a Joana", 
+            "menu": "H", 
+            "tree_id": 3, 
+            "date_pub": "2011-10-10", 
+            "body": "<p>&Oacute; p&aacute;,</p>\r\n<p>Isto ainda rebenta um bocadinho por todo o lado, mas &eacute; mais que tempo de se come&ccedil;arem a introduzir conte&uacute;dos;</p>\r\n<p>Isto que estas a ler &eacute; um 'artigo', isto &eacute;, escreves o que te apetecer, 't&aacute;s a ver?</p>\r\n<p>Tens forma de escrever <strong>negritos </strong>e <em>it&aacute;lico </em>e n&atilde;o-sei-qu&ecirc; e alinhar &agrave; esquerda&nbsp;</p>\r\n<p style=\"text-align: right;\">e &agrave; direita e tal, como nos editores de texto b&aacute;sico, e &eacute; o que isto tem (l&aacute; atr&aacute;s, no <em>backoffice</em>), um editor de texto b&aacute;sico.</p>\r\n<p>Deves poder copiar do Word e colar no editorzinho mas desaconselho porque o texto vem com os formatos agarrados e torna-se por vezes imposs&iacute;vel 'desformatar'. Por isso o melhor, nesses casos, &eacute; copiar do Word para o Bloco de Notas, e do Bloco de Notas copiar para a aqui (o editorzinho, isto &eacute;)</p>\r\n<p>Bom, mas come&ccedil;ando.</p>\r\n<p>&nbsp;</p>\r\n<p>1. Num separador ao lado acede a http://staging.arquente.org/admin.</p>\r\n<p>2. Ao entrares no m&oacute;dulo 'Artigos' vais encontrar este que est&aacute;s a ler.</p>\r\n<p>3.&nbsp;V&ecirc;s que podes adicionar imagens, logo abaixo do editorzinho - as imagens podem ser previamente carregadas para o website sob a forma de um ficheiro ZIP em 'carregar galerias', logo na p&aacute;gina prinicipal da administra&ccedil;&atilde;o</p>\r\n<p>4. As imagens t&ecirc;m sempre que ser carregadas, previamente ou 'na hora', pois al&eacute;m do ficheiro de imagem &eacute; obrigat&oacute;rio um t&iacute;tulo/descri&ccedil;&atilde;o - &eacute; melhor assim, do que procurar por uma imagem em 1000.</p>\r\n<p>5. A 'ilustra&ccedil;&atilde;o' vai preencher o fundo do website - conv&eacute;m ser maiorzinha, o tamanho original, mas nada de excessos, n&atilde;o vale a pena imagens com mais de 1280px de largo, digo.<br />6. Nas op&ccedil;&otilde;es avan&ccedil;adas lembro que se escolheres menu:Header, o artigo em que estiveres a trabalhar aparece no menu vertical esquerdo do website (com o t&iacute;tulo abreviado - como j&aacute; pudeste constatar)</p>\r\n<p>6. De resto lembro apenas que estes conte&uacute;dos querem-se estruturalmente hierarquicos na forma como s&atilde;o organizados.</p>\r\n<p>&nbsp;</p>\r\n<p>O assunto em que dever&aacute;s mexer com mais frequ&ecirc;ncia, no in&iacute;cio, ser&aacute; no m&oacute;dulo de Produ&ccedil;&atilde;o.</p>\r\n<p>At&eacute; j&aacute;</p>", 
+            "parent": null, 
+            "is_highlight": true, 
+            "images": [], 
+            "illustration": null, 
+            "is_public": true, 
+            "slug": "manual-de-instrucoes-para-a-joana", 
+            "is_index": false, 
+            "level": 0, 
+            "modified": "2011-10-10 15:54:18", 
+            "short_title": "Joana", 
+            "extra_style": "", 
+            "extra_script": "", 
+            "modifier": 1
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "content.article", 
+        "fields": {
+            "rght": 2, 
+            "weight": 4, 
+            "lft": 1, 
+            "keywords": "", 
+            "is_gallery": false, 
+            "title": "Sexta-feira fui \u00e0 feira", 
+            "menu": "H", 
+            "tree_id": 4, 
+            "date_pub": "2012-05-21", 
+            "body": "Deves ter ido deves", 
+            "parent": null, 
+            "is_highlight": false, 
+            "images": [], 
+            "illustration": null, 
+            "is_public": true, 
+            "slug": "sexta-feira-fui-feira", 
+            "is_index": false, 
+            "level": 0, 
+            "modified": "2012-05-21 23:25:49", 
+            "short_title": "Sexta-feira fui", 
+            "extra_style": "", 
+            "extra_script": "", 
+            "modifier": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "content.news", 
+        "fields": {
+            "body": "Reposi\u00e7\u00e3o em espect\u00e1culo no pr\u00f3ximo dia 8 de Junho.", 
+            "author": "", 
+            "headline": "Phantom Limb", 
+            "modified": "2012-05-21 22:36:44", 
+            "summary": "Reposi\u00e7\u00e3o em espect\u00e1culo no pr\u00f3ximo dia 8 de Junho.\r\n", 
+            "images": [], 
+            "date_pub": "2012-05-21 22:35:14", 
+            "is_public": true, 
+            "modifier": 1, 
+            "sections": [], 
+            "slug": "phantom-limb"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "content.news", 
+        "fields": {
+            "body": "Concertos ao Entardecer, na Galeria ARCO, 26 de Maio\r\n", 
+            "author": "", 
+            "headline": "Tiago Sousa na ARCO", 
+            "modified": "2012-05-21 22:02:22", 
+            "summary": "Tiago Sousa na ARCO no pr\u00f3ximo dia 26 de Maio.", 
+            "images": [
+                54
+            ], 
+            "date_pub": "2012-05-21 21:48:40", 
+            "is_public": true, 
+            "modifier": 1, 
+            "sections": [], 
+            "slug": "tiago-sousa-na-arco"
+        }
+    }
+]

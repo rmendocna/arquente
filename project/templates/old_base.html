@@ -1,0 +1,56 @@
+{%load content_tags production_tags i18n%}
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8" />
+<title>{%block headtitle%}{%endblock%} AL-MaSRAH Teatro</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link href="/sitemedia/css/base.css" rel="stylesheet" type="text/css">
+{%block extra_head%}{%endblock%}
+</head>
+<body>
+<nav>{%get_menu H as menu%}
+  <ul>{%for item in menu%}
+    <li><a href="{% url article_detail item.slug%}">{{item.short_title}}</a></li>{%endfor%}
+    <li><a href="/production/staging/">{% trans 'On stage'%}</a></li>
+    <li><a href="/production/festivals/">{%trans 'Events'%}</a></li>
+  </ul>
+</nav>
+<header>
+  <div style="{%block illustration%}{%get_illustration as illust%}{{illust}}{%endblock%}">
+    </div>
+</header>
+<section id="main">
+  <aside id="left">{%get_productions t as nowstaging%}
+  {%for production in nowstaging%}
+  {% if forloop.first%}<h2>{%trans "NOW PLAYING"%}</h2><ul>{%endif%}
+  <li><a href="{% url production_detail production.slug%}">{{production.title}}</a></li>
+  {% if forloop.last%}</ul>{%endif%}
+  {%endfor%}
+  {%get_productions 0 as historical%}
+  {%for production in historical%}
+    {% if forloop.first%}<h3>{%trans "PAST PRODUCTIONS"%}</h3><ul>{%endif%}
+      <li><a href="{% url production_detail production.slug%}">{{production.title}}</a></li>
+    {% if forloop.last%}</ul>{%endif%}
+  {%endfor%}
+  </aside>
+  <aside id="right">{% block rightside%}
+     <p>Twenty dwarfs took turns doing handstands on the carpet</p>
+     <p>&nbsp;</p>{%endblock%}
+  </aside>
+  <section id="breadcrumbs">{%block breadcrumbs%}<a href="/">{%trans 'Home page'%}</a> \ {%endblock%}
+  </section>
+  <section id="content">{%block content%}
+    <h2> </h2>
+    <p></p>{%endblock%}
+  <footer>{%block footer%}<a href="">Contactos</a>  
+  {%get_menu F as footermenu%}
+  {%for option in footermenu%} <a href="{% url article_detail option.slug%}" title="{{option.title}}">{{option.short_title}}</a>{%endfor%}
+  <a href="">Mapa do S&iacute;tio</a>{%endblock%}</footer>
+  </section>	
+</section>
+{%block extra_foot%}{%endblock%}
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{% load content_tags%}
+{% block extrahead %}
+{% ifnotequal highlight.images.all.count 0%}<link href="/sitemedia/css/slimbox2.css" rel="stylesheet" type="text/css" />
+{%endifnotequal%}
+{%endblock%}
+{%block title%}{{highlight.title}}{%endblock%}
+{%block leading%}{{highlight.leading|safe}}{%endblock%}
+{%block images%}{%for img in highlight.images.all%}<a href="{{img.get_display_url}}" title="{{img.title}}" rel="lightbox_grp"><img src="{{img.get_thumbnail_url}}" alt="{{img.title}}" /></a>{%endfor%}{%endblock%}
+{% block content%}
+{%split_text highlight.body as columns%}
+{%for column in columns%}<div>{{column|safe}}</div>{%endfor%}
+{%endblock%}
+
+{%block extrafoot%}
+{% ifnotequal highlight.images.all.count 0%}
+<script type="text/javascript" src="/sitemedia/js/jquery.cycle.lite.min.js"></script>
+<script type="text/javascript" src="/sitemedia/js/slimbox2.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){$('.illustration').cycle({pause:1,timeout:10000,speed:2000}); });
+</script>
+{%endifnotequal%}
+{{block.super}}
+{%endblock%}  

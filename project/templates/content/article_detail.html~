@@ -1,0 +1,49 @@
+{%extends 'new_base.html'%}
+{% load content_tags i18n %}
+{%block head_title%}{{object.title}}{%endblock%}
+{% block extrahead%}
+{{block.super}}
+{% ifnotequal object.images.all.count 0%}
+<link href="/sitemedia/css/slimbox2.css" rel="stylesheet" type="text/css" />
+{%endifnotequal%}
+<!--link rel="stylesheet" type="text/css" media="screen, projection" href="/sitemedia/css/columns.css"
+/-->
+<!--style type="text/css">
+#scrollable {display: inline; width: 90%; clear: right;}
+</style-->
+{%endblock%}
+{%block illustration%}{%get_illustration object as ill%}{{ill}}{%endblock%}
+{% block breadcrumbs%}
+{%for elder in object.get_ancestors %}\ <a href="{% url article_detail elder.slug%}" title="{{elder.title}}">{%firstof elder.short_title elder.title%}</a>{%endfor%}
+{%endblock%}
+{%block rightside%}
+{%for child in object.public_children%}
+{%if forloop.first%}<h2>{% trans 'Other articles'%}</h2><ul>{%endif%}
+<li><a href="{% url article_detail child.slug%}">{{child.short_title}}</a></li>
+{%if forloop.last%}</ul>{%endif%}
+{%endfor%}
+{%endblock%}
+{%block title%}{{object.title}}{%endblock%}
+{%block images%}{%for img in object.images.all%}<a href="{{img.get_display_url}}" title="{{img.title}}" rel="lightbox_grp"><img src="{{img.get_thumbnail_url}}" /></a>
+{%endfor%}{%endblock%}
+{%block content%}{%object.body|safe%}
+{#split_text object.body as columns#}
+{#for column in columns %}<div>{{column|safe}}</div>{%endfor#}
+{%endblock%}
+{%block extrafoot%}
+<!--script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+// <![CDATA[
+//    google.load("jquery", "1.3.2");
+// ]]>
+</script-->
+<!--script type="text/javascript" src="/sitemedia/js/jquery.columns.js"></script-->
+<script type="text/javascript">
+// <![CDATA[
+// initialize
+//$(document).ready(function() {
+//    $('.columns').columns({paging:false});
+//});
+// ]]>
+</script>
+{%endblock%}

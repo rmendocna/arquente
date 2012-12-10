@@ -1,0 +1,83 @@
+
+*** These modified files were found in JOE when it aborted on Tue Jun 28 12:50:10 2011
+*** JOE was aborted because the terminal closed
+
+*** File 'production_detail.html'
+{%extends 'base.html'%}
+{%load i18n content_tags%}
+{%block headtitle%}{{object.title}}{%endblock%}
+{%block extra_head%}
+{% ifnotequal object.images.count 0%}
+<link href="/sitemedia/css/slimbox2.css" rel="stylesheet" type="text/css" />
+{%endifnotequal%}
+{%endblock%}
+{% block illustration%}background-image:url({{object.poster.get_wide_url}}){%endblock%}
+{%block content%}
+<h1>{{object.title}}</h1>
+{% for part in object.cast.all%}
+{%if part.role.is_artistic%}<img class="face" src="{{part.person.photo.get_face_url}}" alt="{{part.person.name}}"/>{%endif%}
+{%endfor%}
+{{object.synopsis|safe}}
+{% for img in object.images.all%}
+<a href="{{img.get_display_url}}" rel="lightbox_grp" title="{{img.title}}"><img src="{{img.get_mini_url}}" alt="{{img.title}}"/></a>
+{%endfor%}
+{#casts#}
+<h3>{%trans %}
+{%regroup object.cast.all by role as casts%}
+<p>
+{%for cast in casts%}
+<strong>{{cast.grouper}}</strong>: {%for player in cast.list%}{%if not forloop.first%}, {%endif%}{{player.person}}{%endfor%}
+{%endfor%}
+</p>
+{# sponsoring and support#}
+{%regroup object.sponsors.all by support_type as sponsorgroups%}
+{%for sg in sponsorgroups%}
+<p>{{sg.grouper}}:<br />
+{%for spcr in sg.list%}<div><img src="{{spcr.sponsor.logo.get_admin_thumbnail_url}}" alt="{{spcr.name}}" /><br />{{spcr.sponsor}}</div>{%endfor%}
+</p>
+{%endfor%}
+{%endblock%}
+{%block extra_foot %}
+{% ifnotequal object.images.count 0%}
+<script type="text/javascript" src="/sitemedia/js/slimbox2.js"></script>
+{%endifnotequal%}
+{{block.super}}
+{%endblock %}
+*** File '(Unnamed)'
+]
+Heading1
+"/sitemedia/js/
+idxObj
+TranslationModel
+BaseAdmin
+motif_motif (created, creator_id, modified, modifier_id, index_id, num, descriptor ,comments) VALUES (SELECT NOW(), 1, SELECT NOW(), 1, 1,
+''
+\&#
+eventosdoarade.pt
+
+*** File '(Unnamed)'
+h4
+trans
+a img
+img
+content
+class Spnsor
+class Sponsor
+weight
+                                                                        
+left
+
+*** File '(Unnamed)'
+base.css
+base.css
+base.css
+base.css
+base.html
+base.html
+base.html
+base.css
+base.css
+models.py
+production_detail.html
+production_detail.html
+production_detail.html

@@ -1,0 +1,65 @@
+{% extends "admin/change_list.html" %}
+{% load i18n mptt_tags content_tags %}
+{% block extrahead %}
+{% if cl.params.pop %}{% ifequal cl.params.pop '2' %}<!-- TinyMCE -->
+<script type="text/javascript" src="/sitemedia/admin/js/tiny_mce/tiny_mce_popup.js"></script>
+<script type="text/javascript" src="/sitemedia/admin/filebrowser/js/FB_TinyMCE.js"></script>
+{% endifequal %}{%endif%}
+{% endblock %}
+{% block breadcrumbsz %}
+<div class="breadcrumbs">{% if not is_popup %}<a href="../../">{% trans "Home" %}</a> &rsaquo; <a href="./">{{ cl.opts.verbose_name_plural|capfirst|escape }}</a>{% endif %}
+{% spaceless %}
+{% if cl.params.parent %}
+      {% get_article cl.params.parent as current %}
+      {% if current.is_child_node %}
+        {% for ances in current.get_ancestors %}
+          &rsaquo;  <a href="./?parent={{ances.id}}">{% if ances.short_title %}{{ ances.short_title }}{% else %}{{ ances.title }}{% endif %}</a> 
+        {% endfor %}
+      {% endif %}
+      &rsaquo; {% if current.short_title %}{{ current.short_title }}{% else %}{{ current.title }}{% endif %}
+{% endif %}
+{{ some_node.get_ancestors|tree_path:" > " }}
+</div>   
+{% endspaceless %}{% endblock %}
+
+{% block coltype %}colSM{% endblock %}
+{% block sidebar %}
+<div id="content-related">
+  <div class="module" id="content_tree">
+    <h2><a href="./?parent__isnull=1">{{ cl.opts.verbose_name_plural|capfirst|escape }}</a></h2>
+  {% if cl.params.parent %}
+    {% get_article cl.params.parent as current %}
+    {% drilldown_tree_for_node current as drilldown %}
+  {% endif %}
+  {% full_tree_for_model content.article as tree %}
+  <ul>{% spaceless %}
+  {% for branch in tree|dictsort:"weight"%}{#|dictsortreversed:"created" %#}
+    {% ifequal branch.level 0 %}
+      <li {% ifequal branch.id current.id %}class="row1"{% endifequal %}>
+      {% ifequal branch.id current.get_root.id %}
+            {% if drilldown %}
+              {% for node,structure in drilldown|tree_info %}
+                {% if structure.new_level %}{% if forloop.first %}{% else %}<ul>
+                <li style="list-style-type:{% if node.is_leaf_node %}disc{%else%}circle{%endif%}">{% endif %}{% else %}</li>
+                <li style="list-style-type:{% if node.is_leaf_node %}disc{%else%}circle{%endif%}">{% endif %}<a href="./?parent={{ node.id }}"  {% ifequal node.id current.id %}class="row1"{% endifequal %} {% if node.is_leaf_node %}style="color:#999"{% endif %}>{% if node.short_title %}{{ node.short_title }}{% else %}{{ node.title }}{% endif %}</a>
+                {# ifequal node.parent_id current.id % }( {{ node.article_count }}){ % endifequal #}
+                {% for level in structure.closed_levels %}{% if forloop.last %}{% if forloop.parentloop.last %}{% else %}</li></ul>{% endif %}{% else %}</li></ul>{% endif %}{% endfor %}
+              {% endfor %}
+            {% endif %}
+          {% else %}<a href="./?parent={{ branch.pk }}{% if cl.params.pop %}{% ifequal cl.params.pop '2' %}&pop=2{%endifequal%}{%endif%}">{% if branch.short_title %}{{ branch.short_title }}{% else %}{{ branch.title }}{% endif %}</a>{% endifequal %}</li>
+    {% endifequal %}  
+  {% endfor %}
+  {% endspaceless %}</ul>
+  </div>
+</div>
+{% endblock sidebar %}
+{% block object-tools %}
+  {%if cl.params.parent %}
+      {% if has_add_permission %}
+          <ul class="object-tools"><li><a href="add/?parent={{ cl.params.parent }}{% if is_popup %}&_popup=1{% endif %}{% if cl.params.pop %}&pop={{cl.params.pop}}{% endif %}" class="addlink">
+          {% get_article cl.params.parent as current %}{% blocktrans with cl.opts.verbose_name|escape as name and current.title as category %}Add {{ name }} to '{{ category }}'{% endblocktrans %}</a></li></ul>
+      {% endif %}
+  {%else%}
+      {{block.super}}
+  {%endif%}
+{% endblock %}

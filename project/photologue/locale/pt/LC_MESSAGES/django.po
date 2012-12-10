@@ -1,0 +1,470 @@
+# -*- coding: utf-8 -*-
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-06-28 17:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:25
+msgid "Extra options"
+msgstr "Opções adicionais"
+
+#: models.py:43
+msgid "Separate tags with spaces, put quotes around multiple-word tags."
+msgstr ""
+
+#: models.py:52
+msgid "Django-tagging was not found, tags will be treated as plain text."
+msgstr ""
+"O modulo Tagging não foi encontrado, as palavras-chaves serão tratadas como "
+"texto simples."
+
+#: models.py:89
+msgid "Very Low"
+msgstr "Muito baixa"
+
+#: models.py:90
+msgid "Low"
+msgstr "Baixa"
+
+#: models.py:91
+msgid "Medium-Low"
+msgstr "Media-baixa"
+
+#: models.py:92
+msgid "Medium"
+msgstr "Media"
+
+#: models.py:93
+msgid "Medium-High"
+msgstr "Medio-alta"
+
+#: models.py:94
+msgid "High"
+msgstr "Alta"
+
+#: models.py:95
+msgid "Very High"
+msgstr "Muito Alta"
+
+#: models.py:100
+msgid "Top"
+msgstr "Cimo"
+
+#: models.py:101
+msgid "Right"
+msgstr "Direita"
+
+#: models.py:102
+msgid "Bottom"
+msgstr "Baixo"
+
+#: models.py:103
+msgid "Left"
+msgstr "Esquerda"
+
+#: models.py:104
+msgid "Center (Default)"
+msgstr "Centro (por omissao)"
+
+#: models.py:108
+msgid "Flip left to right"
+msgstr "Voltar da esquerda para a direita"
+
+#: models.py:109
+msgid "Flip top to bottom"
+msgstr "Voltar de cima para baixo"
+
+#: models.py:110
+msgid "Rotate 90 degrees counter-clockwise"
+msgstr "Rodar 90 graus"
+
+#: models.py:111
+msgid "Rotate 90 degrees clockwise"
+msgstr "Rodar -90 graus"
+
+#: models.py:112
+msgid "Rotate 180 degrees"
+msgstr "Roidar 180 graus"
+
+#: models.py:116
+msgid "Tile"
+msgstr "Mosaico~"
+
+#: models.py:117
+msgid "Scale"
+msgstr "Escala"
+
+#: models.py:127
+#, python-format
+msgid ""
+"Chain multiple filters using the following pattern \"FILTER_ONE->FILTER_TWO-"
+">FILTER_THREE\". Image filters will be applied in order. The following "
+"filters are available: %s."
+msgstr ""
+
+#: models.py:131 models.py:524
+msgid "image"
+msgstr "imagem"
+
+#: models.py:133
+msgid "date taken"
+msgstr ""
+
+#: models.py:135
+msgid "crop from"
+msgstr "cortar por"
+
+#: models.py:136
+msgid "effect"
+msgstr "efeito"
+
+#: models.py:154
+msgid "An \"admin_thumbnail\" photo size has not been defined."
+msgstr "Não foi definido um tamanho de imagem \"admin_thumbnail\""
+
+#: models.py:162
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: models.py:358 models.py:658 models.py:715
+msgid "title"
+msgstr "título"
+
+#: models.py:359
+msgid "slug"
+msgstr ""
+
+#: models.py:361 models.py:716
+msgid "caption"
+msgstr "descrição da imagem"
+
+#: models.py:362
+msgid "date added"
+msgstr ""
+
+#: models.py:363 models.py:662 models.py:718
+msgid "is public"
+msgstr "publicar"
+
+#: models.py:363
+msgid "Public photographs will be displayed in the default views."
+msgstr ""
+
+#: models.py:364
+msgid "is highlighted"
+msgstr "destacada"
+
+#: models.py:364
+msgid "Highlighted images will be promoted to home page"
+msgstr ""
+
+#: models.py:365 models.py:666 models.py:719
+msgid "tags"
+msgstr "palavras-chave"
+
+#: models.py:370
+msgid "photo"
+msgstr "imagem"
+
+#: models.py:371 models.py:664
+msgid "photos"
+msgstr "imagens"
+
+#: models.py:407 models.py:538
+msgid "name"
+msgstr "nome"
+
+#: models.py:408 models.py:661 models.py:717
+msgid "description"
+msgstr "descrição"
+
+#: models.py:479
+msgid "rotate or flip"
+msgstr "rodar ou voltar"
+
+#: models.py:480 models.py:488
+msgid "color"
+msgstr "cor"
+
+#: models.py:480
+msgid ""
+"A factor of 0.0 gives a black and white image, a factor of 1.0 gives the "
+"original image."
+msgstr ""
+
+#: models.py:481
+msgid "brightness"
+msgstr "brilho"
+
+#: models.py:481
+msgid ""
+"A factor of 0.0 gives a black image, a factor of 1.0 gives the original "
+"image."
+msgstr ""
+
+#: models.py:482
+msgid "contrast"
+msgstr "contraste"
+
+#: models.py:482
+msgid ""
+"A factor of 0.0 gives a solid grey image, a factor of 1.0 gives the original "
+"image."
+msgstr ""
+
+#: models.py:483
+msgid "sharpness"
+msgstr "definição"
+
+#: models.py:483
+msgid ""
+"A factor of 0.0 gives a blurred image, a factor of 1.0 gives the original "
+"image."
+msgstr ""
+
+#: models.py:484
+msgid "tint"
+msgstr "colorir"
+
+#: models.py:484
+msgid ""
+"You can either enter an RGB code in the form #HHHHHH or an accepted color "
+"name."
+msgstr ""
+
+#: models.py:485
+msgid "filters"
+msgstr "filtros"
+
+#: models.py:486
+msgid "size"
+msgstr "tamanho"
+
+#: models.py:486
+msgid ""
+"The height of the reflection as a percentage of the orignal image. A factor "
+"of 0.0 adds no reflection, a factor of 1.0 adds a reflection equal to the "
+"height of the orignal image."
+msgstr ""
+
+#: models.py:487
+msgid "strength"
+msgstr "força"
+
+#: models.py:487
+msgid "The initial opacity of the reflection gradient."
+msgstr ""
+
+#: models.py:488
+msgid ""
+"The background color of the reflection gradient. Set this to match the "
+"background color of your page."
+msgstr ""
+
+#: models.py:491 models.py:546
+msgid "photo effect"
+msgstr "efeito fotográfico"
+
+#: models.py:492
+msgid "photo effects"
+msgstr "efeitos fotográficos"
+
+#: models.py:525
+msgid "style"
+msgstr "estilo"
+
+#: models.py:526
+msgid "opacity"
+msgstr "opacidade"
+
+#: models.py:526
+msgid "The opacity of the overlay."
+msgstr ""
+
+#: models.py:529
+msgid "watermark"
+msgstr "marca d'água"
+
+#: models.py:530
+msgid "watermarks"
+msgstr "marcas d'água"
+
+#: models.py:538
+msgid ""
+"Photo size name should contain only letters, numbers and underscores. "
+"Examples: \"thumbnail\", \"display\", \"small\", \"main_page_widget\"."
+msgstr ""
+
+#: models.py:539
+msgid "width"
+msgstr "largura"
+
+#: models.py:539
+msgid ""
+"If width is set to \"0\" the image will be scaled to the supplied height."
+msgstr ""
+
+#: models.py:540
+msgid "height"
+msgstr "altura"
+
+#: models.py:540
+msgid ""
+"If height is set to \"0\" the image will be scaled to the supplied width"
+msgstr ""
+
+#: models.py:541
+msgid "quality"
+msgstr "qualidade"
+
+#: models.py:541
+msgid "JPEG image quality."
+msgstr "qualidade de imagem JPEG"
+
+#: models.py:542
+msgid "upscale images?"
+msgstr "aumentar as imagens?"
+
+#: models.py:542
+msgid ""
+"If selected the image will be scaled up if necessary to fit the supplied "
+"dimensions. Cropped sizes will be upscaled regardless of this setting."
+msgstr ""
+
+#: models.py:543
+msgid "crop to fit?"
+msgstr "cortar para caber?"
+
+#: models.py:543
+msgid ""
+"If selected the image will be scaled and cropped to fit the supplied "
+"dimensions."
+msgstr ""
+
+#: models.py:544
+msgid "pre-cache?"
+msgstr ""
+
+#: models.py:544
+msgid "If selected this photo size will be pre-cached as photos are added."
+msgstr ""
+
+#: models.py:545
+msgid "increment view count?"
+msgstr "aumentar a contab. de visulaizações"
+
+#: models.py:545
+msgid ""
+"If selected the image's \"view_count\" will be incremented when this photo "
+"size is displayed."
+msgstr ""
+
+#: models.py:547
+msgid "watermark image"
+msgstr "imagem de marca d'água"
+
+#: models.py:551
+msgid "photo size"
+msgstr "tamanho de imagem"
+
+#: models.py:552
+msgid "photo sizes"
+msgstr "tamanhos de imagem"
+
+#: models.py:657
+msgid "date published"
+msgstr ""
+
+#: models.py:659
+msgid "title slug"
+msgstr "slug"
+
+#: models.py:660
+msgid "A \"slug\" is a unique URL-friendly title for an object."
+msgstr ""
+
+#: models.py:663
+msgid "Public galleries will be displayed in the default views."
+msgstr ""
+
+#: models.py:671
+msgid "gallery"
+msgstr "galeria"
+
+#: models.py:672
+msgid "galleries"
+msgstr "galerias"
+
+#: models.py:705
+msgid "count"
+msgstr "contagem"
+
+#: models.py:712
+msgid "images file (.zip)"
+msgstr "ficheiro de imagens (.zip)"
+
+#: models.py:713
+msgid "Select a .zip file of images to upload into a new Gallery."
+msgstr ""
+
+#: models.py:714
+msgid ""
+"Select a gallery to add these images to. leave this empty to create a new "
+"gallery from the supplied title."
+msgstr ""
+
+#: models.py:715
+msgid ""
+"All photos in the gallery will be given a title made up of the gallery title "
+"+ a sequential number."
+msgstr ""
+
+#: models.py:716
+msgid "Caption will be added to all photos."
+msgstr ""
+
+#: models.py:717
+msgid "A description of this Gallery."
+msgstr ""
+
+#: models.py:718
+msgid ""
+"Uncheck this to make the uploaded gallery and included photographs private."
+msgstr ""
+
+#: models.py:722
+msgid "gallery upload"
+msgstr "carregamento múltiplo"
+
+#: models.py:723
+msgid "gallery uploads"
+msgstr "carregamento múltiplos"
+
+#: widgets.py:17
+msgid "loading..."
+msgstr "a carregar"
+
+#: widgets.py:65
+msgid "preview image"
+msgstr "ver imagem"
+
+#: widgets.py:94
+msgid "preview image - click to update"
+msgstr ""
+
+#: utils/__init__.py:8
+msgid "Highlight selected"
+msgstr "Destacadar seleccionada"

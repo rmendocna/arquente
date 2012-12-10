@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%load i18n%}
+{%block headtitle%}{% trans "News"%}{%endblock%}
+{%block content%}
+
+<h1>{% trans "News"%}</h1>
+{% for object in object_list%}
+<h2><span style="float:right; display:block">{{object.date_pub}}</span>{{object.headline}}</h2>
+{{object.body|safe|truncatewords_html:"50"}}
+{%endfor%}
+{{object.body|safe}}
+{%endblock%}

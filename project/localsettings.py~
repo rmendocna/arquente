@@ -1,0 +1,28 @@
+TEMPLATE_DIRS = (
+    '/home/ricardo/projects/arquente/web/templates',
+)
+                
+LOCALES_PATH = (
+    '/home/ricardo/projects/arquente/locale/',
+)
+MEDIA_ROOT = '/home/ricardo/projects/arquente/sitemedia/'
+ADMIN_MEDIA_PREFIX = '/sitemedia/admin/'
+
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+    'mptt',
+    'reversion',
+    'tagging',
+    'tinymce',
+    'project.countries', 
+    'project.production',  
+    'project.photologue', 
+    'project.filebrowser',
+    'project.content',    
+)

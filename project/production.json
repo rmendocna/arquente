@@ -1,0 +1,595 @@
+[
+    {
+        "pk": 2, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 1, 
+            "modified": "2011-10-10 15:45:42"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2011-12-07 15:39:47"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-25 22:34:06"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-25 23:01:11"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-25 23:02:29"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-25 23:17:40"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-25 23:56:40"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:00:29"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:07:37"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:15:36"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:18:37"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 1, 
+            "modified": "2012-03-27 01:06:07"
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 1, 
+            "modified": "2012-03-27 01:06:07"
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 1, 
+            "modified": "2012-05-23 00:32:51"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:20:53"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:17:43"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:14:42"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:06:27"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 1, 
+            "modified": "2012-05-23 00:34:15"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:00:29"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 2, 
+            "modified": "2012-03-26 00:03:06"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "production.base", 
+        "fields": {
+            "modifier": 1, 
+            "modified": "2012-03-27 01:37:57"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "production.venue", 
+        "fields": {
+            "website": "", 
+            "city": "Faro", 
+            "name": "ArQuente . Galeria Arco", 
+            "country": "PT", 
+            "telephone": "", 
+            "address": "R. Antonio Maria Laboia, n\u00ba 1", 
+            "email": "arquente@gmail.com", 
+            "zip_code": "8000 - Faro"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "production.venue", 
+        "fields": {
+            "website": "http://teatrobruto.blogspot.com/", 
+            "city": "Porto", 
+            "name": "Espa\u00e7o Bruto", 
+            "country": "PT", 
+            "telephone": "223395126", 
+            "address": "Funda\u00e7\u00e3o Escultor Jos\u00e9 Rodrigues Espa\u00e7o Bruto/F\u00e1brica Social Rua da F\u00e1brica Social", 
+            "email": "teatrobruto@gmail.com", 
+            "zip_code": "4000-201 Porto"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "production.venue", 
+        "fields": {
+            "website": "http://teatrobruto.blogspot.com/", 
+            "city": "Porto", 
+            "name": "Espa\u00e7o Bruto", 
+            "country": "PT", 
+            "telephone": "223395126", 
+            "address": "Funda\u00e7\u00e3o Escultor Jos\u00e9 Rodrigues Espa\u00e7o Bruto/F\u00e1brica Social Rua da F\u00e1brica Social", 
+            "email": "teatrobruto@gmail.com", 
+            "zip_code": "4000-201 Porto"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "production.supporttype", 
+        "fields": {
+            "name": "Teatro Municipal de Portim\u00e3o", 
+            "weight": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "production.supporttype", 
+        "fields": {
+            "name": "Teatro Municipal de Faro", 
+            "weight": 2
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "production.supporttype", 
+        "fields": {
+            "name": "TEMPO", 
+            "weight": 3
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "production.supporttype", 
+        "fields": {
+            "name": "TMF", 
+            "weight": 4
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "production.entity", 
+        "fields": {
+            "website": "http://www.arquente.org/", 
+            "bio": "", 
+            "name": "ArQuente", 
+            "is_producer": true, 
+            "company": "ArQuente - Associa\u00e7\u00e3o Cultural", 
+            "venue": null, 
+            "logo": null
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "production.entity", 
+        "fields": {
+            "website": "", 
+            "bio": "", 
+            "name": "ArQuente", 
+            "is_producer": true, 
+            "company": "", 
+            "venue": null, 
+            "logo": null
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "production.entity", 
+        "fields": {
+            "website": "", 
+            "bio": "", 
+            "name": "Walter Benjamin", 
+            "is_producer": false, 
+            "company": "", 
+            "venue": null, 
+            "logo": null
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "production.entity", 
+        "fields": {
+            "website": "", 
+            "bio": "", 
+            "name": "Tiago Sousa", 
+            "is_producer": false, 
+            "company": "Tiago Sousa", 
+            "venue": 7, 
+            "logo": null
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "production.entity", 
+        "fields": {
+            "website": "", 
+            "bio": "", 
+            "name": "Osso Vaidoso", 
+            "is_producer": false, 
+            "company": "", 
+            "venue": null, 
+            "logo": null
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "production.entity", 
+        "fields": {
+            "website": "", 
+            "bio": "", 
+            "name": "Algod\u00e3o", 
+            "is_producer": false, 
+            "company": "", 
+            "venue": null, 
+            "logo": null
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "production.kind", 
+        "fields": {
+            "name": "Exposi\u00e7\u00e3o", 
+            "is_performative": true
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "production.kind", 
+        "fields": {
+            "name": "Musica", 
+            "is_performative": true
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "production.kind", 
+        "fields": {
+            "name": "Teatro/Performance", 
+            "is_performative": true
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "production.production", 
+        "fields": {
+            "kind": 3, 
+            "subtitle": "Concertos ao Entardecer", 
+            "title": "Algod\u00e3o", 
+            "is_staging": false, 
+            "poster": null, 
+            "company": 24, 
+            "images": [], 
+            "synopsis": "<p>Estas s&atilde;o algumas das palavras com que a cr&iacute;tica agraciou &ldquo;Uma Falaciosa No&ccedil;&atilde;o de Intimidade&rdquo;, o primeiro disco<br />de Algod&atilde;o, o projecto que &eacute; a cara, a mente e mais ainda o cora&ccedil;&atilde;o de Carlos Nobre, vocalista e letrista dos extintos Da Weasel, comummente conhecido como &ldquo;Pacman&rdquo;, num registo familiar ao &ldquo;spoken word&rdquo;. Unanimemente considerado como um primeiro passo de uma aventura que se prev&ecirc; maior, &ldquo;Uma<br />Falaciosa No&ccedil;&atilde;o de Intimidade&rdquo; ganha agora novas cores e arrisca outras dimens&otilde;es sonoras com a colabora&ccedil;&atilde;o dos m&uacute;sicos Nelson Correia (guitarras) e Gil Pulido (teclas e programa&ccedil;&otilde;es) nas suas apresenta&ccedil;&otilde;es ao vivo, em espa&ccedil;os acolhedores, quentes e prop&iacute;cios &agrave; reflex&atilde;o que nos merece esta intimidade. E um novo disco j&aacute; come&ccedil;a a ser trabalhado para uma edi&ccedil;&atilde;o no final de 2012...</p>", 
+            "video": "", 
+            "authors": "", 
+            "duration": "01:00:00", 
+            "is_public": false, 
+            "slug": "algodao", 
+            "opening_night": "2012-07-14"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "production.production", 
+        "fields": {
+            "kind": 3, 
+            "subtitle": "Concertos ao Entardecer", 
+            "title": "Osso Vaidoso", 
+            "is_staging": false, 
+            "poster": null, 
+            "company": 22, 
+            "images": [], 
+            "synopsis": "<p><span class=\"il\">Osso</span> <span class=\"il\">vaidoso</span> &eacute; o novo projeto de Ana Deus, voz (Ban, Tr&ecirc;s Tristes Tigres) e de Alexandre Soares, guitarra (GNR, Tr&ecirc;s Tristes Tigres). Apresentam ao vivo o seu disco Animal, considerado pela Revista Vis&atilde;o um dos melhores discos de m&uacute;sica portuguesa de 2011. Can&ccedil;&otilde;es simples com textos poderosos de Alberto Pimenta, Regina Guimar&atilde;es e Valter Hugo M&atilde;e.</p>", 
+            "video": "", 
+            "authors": "Osso Vaidoso", 
+            "duration": "01:00:00", 
+            "is_public": false, 
+            "slug": "osso-vaidoso", 
+            "opening_night": "2012-06-16"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "production.production", 
+        "fields": {
+            "kind": 3, 
+            "subtitle": "Concertos ao Entardecer", 
+            "title": "Tiago Sousa", 
+            "is_staging": true, 
+            "poster": null, 
+            "company": 20, 
+            "images": [], 
+            "synopsis": "<p>Em 2009, Tiago Sousa lan&ccedil;ou o imprevis&iacute;vel Ins&oacute;nia. Volvido apenas ano e meio, regressa com Walden Pond&rsquo;s Monk, disco que quebra as fronteiras da Europa e que surge no mercado pela m&atilde;o do selo norte-americano&nbsp; Immune Recordings, com distribui&ccedil;&atilde;o mundial da Thrill Jockey. Composto sob a influ&ecirc;ncia directa do idealismo e do esp&iacute;rito revolucion&aacute;rio de Henry David Thoreau, Walden Pond\u201fs Monk &eacute; uma evolu&ccedil;&atilde;o natural da est&eacute;tica j&aacute; presente em Ins&oacute;nia, ao mesmo tempo que revela a maturidade de um compositor que continuamente se p&otilde;e &agrave; prova. Neste disco, Tiago Sousa mant&eacute;m a mesma abordagem intuitiva e espont&acirc;nea ao piano que sempre demonstrou e permanece convictamente imperme&aacute;vel aos formalismos normativos dos g&eacute;neros e academismos. Com Ricardo Ribeiro (clarinete) e Baltazar Molina (percuss&atilde;o), o m&uacute;sico constr&oacute;i uma pe&ccedil;a em movimento cont&iacute;nuo, ancorada em melodias impressionistas de simplicidade desarmante, que interrompe com a tempestuosidade acidental do improviso. Ao longo dos pouco mais de 30 minutos de Walden Pond&rsquo;s Monk, Tiago Sousa alimenta uma narrativa rom&acirc;ntica a partir das ideias basilares que Thoreau materializou em obras como Walden ou a Vida nos bosques e Desobedi&ecirc;ncia Civil: o respeito profundo pela liberdade e pela express&atilde;o<br />infinita das potencialidades do Homem. Um encontro inesperado que ultrapassa os limites de um disco e transforma-se inequivocamente num manifesto est&eacute;tico e pessoal de Tiago Sousa.</p>", 
+            "video": "", 
+            "authors": "", 
+            "duration": "01:00:00", 
+            "is_public": true, 
+            "slug": "tiago-sousa", 
+            "opening_night": "2012-05-26"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "production.production", 
+        "fields": {
+            "kind": 3, 
+            "subtitle": "Concertos ao Entardecer", 
+            "title": "Walter Benjamin", 
+            "is_staging": true, 
+            "poster": null, 
+            "company": 11, 
+            "images": [], 
+            "synopsis": "<p>Walter Benjamin, singer/songwriter currently based in London - not to be confused with German philosopher, Walter Benjamin, who committed suicide on his way to Portugal - was born in Lisbon during the spring falling on the same day as Bob Dylan. Walter released his sophomore album, The National Crisis, (Merzbau) which was then followed by several EP's. He's toured throughout Europe, including Zurich where he was invited to play his three chord song, 'The Cannonball', at the Dadaist Centre, Cabaret Voltaire, and has also produced and played with several artists.</p>", 
+            "video": "", 
+            "authors": "", 
+            "duration": "01:00:00", 
+            "is_public": true, 
+            "slug": "walter-benjamin", 
+            "opening_night": "2012-04-28"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "production.production", 
+        "fields": {
+            "kind": 3, 
+            "subtitle": "Concertos ao Entardecer", 
+            "title": "Walter Benjamin", 
+            "is_staging": true, 
+            "poster": null, 
+            "company": 11, 
+            "images": [], 
+            "synopsis": "<p>Walter Benjamin, singer/songwriter currently based in London - not to be confused with German philosopher, Walter Benjamin, who committed suicide on his way to Portugal - was born in Lisbon during the spring falling on the same day as Bob Dylan. Walter released his sophomore album, The National Crisis, (Merzbau) which was then followed by several EP's. He's toured throughout Europe, including Zurich where he was invited to play his three chord song, 'The Cannonball', at the Dadaist Centre, Cabaret Voltaire, and has also produced and played with several artists.</p>", 
+            "video": "", 
+            "authors": "Walter Bejanmin", 
+            "duration": "01:00:00", 
+            "is_public": false, 
+            "slug": "walter-benjamin", 
+            "opening_night": "2012-04-28"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "production.production", 
+        "fields": {
+            "kind": 3, 
+            "subtitle": "Concertos ao Entardecer", 
+            "title": "Walter Benjamin", 
+            "is_staging": true, 
+            "poster": null, 
+            "company": 11, 
+            "images": [], 
+            "synopsis": "<p>Em 2009 <span class=\"il\">Walter</span> <span class=\"il\">Benjamin</span> gravou o EP <em>Ice Cream and Swinging Lettuce</em><span style=\"font-style: normal;\"> com o seu amigo Baga &agrave; torreira do sol algarvio, entre a praia e as longas noites de um Julho j&aacute; distante. O escritor de can&ccedil;&otilde;es volta de guitarra em punho para tocar ao p&eacute; do mar, na apresenta&ccedil;&atilde;o do novo LP </span><em>The Imaginary Life of Rosemary and me </em><span style=\"font-style: normal;\">(Pataca Discos)</span><em>. </em><span style=\"font-style: normal;\">Gravado</span><em> </em><span style=\"font-style: normal;\">entre Lisboa e Londres, o disco &eacute; uma hist&oacute;ria em oito cap&iacute;tulos e conta com a participa&ccedil;&atilde;o de ilustres como Jo&atilde;o Correia &amp; Nuno Lucas (Julie &amp; the Carjackers), M&aacute;rcia, Minta, Jakob Bazora, entre outros amigos.</span></p>\r\n<p>&nbsp;</p>\r\n<p>Walter Benjamin, singer/songwriter currently based in London - not to be confused with German philosopher, Walter Benjamin, who committed suicide on his way to Portugal - was born in Lisbon during the spring falling on the same day as Bob Dylan. Walter released his sophomore album, The National Crisis, (Merzbau) which was then followed by several EP's. He's toured throughout Europe, including Zurich where he was invited to play his three chord song, 'The Cannonball', at the Dadaist Centre, Cabaret Voltaire, and has also produced and played with several artists.</p>", 
+            "video": "", 
+            "authors": "", 
+            "duration": "01:00:00", 
+            "is_public": true, 
+            "slug": "walter-benjamin", 
+            "opening_night": "2012-04-28"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "production.production", 
+        "fields": {
+            "kind": 3, 
+            "subtitle": "", 
+            "title": "Walter Benajmin", 
+            "is_staging": true, 
+            "poster": null, 
+            "company": 11, 
+            "images": [], 
+            "synopsis": "", 
+            "video": "", 
+            "authors": "", 
+            "duration": null, 
+            "is_public": true, 
+            "slug": "walter-benajmin", 
+            "opening_night": "2012-04-28"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "production.production", 
+        "fields": {
+            "kind": 2, 
+            "subtitle": "\u00b1 to protest and subvert \u00b1", 
+            "title": "MAISMENOS", 
+            "is_staging": true, 
+            "poster": 53, 
+            "company": 3, 
+            "images": [], 
+            "synopsis": "<p><span style=\"font-size: 10pt; line-height: 150%; text-align: justify;\"><strong>MAISMENOS</strong> &eacute; a marca, ou anti-marca, de um designer que a certo ponto se questionou qual o papel do designer/artista numa sociedade perversamente consumista e socialmente desantenta. Miguel Janu&aacute;rio faz nascer em 2005 um projecto de interven&ccedil;&atilde;o e cr&iacute;tica social onde se permite e nos permite, contestar um mundo de convic&ccedil;&otilde;es question&aacute;veis. MAISMENOS apresenta-se</span><span style=\"font-size: 10pt; line-height: 150%; text-align: justify;\">&nbsp; </span><span style=\"font-size: 10pt; line-height: 150%; text-align: justify;\">em espa&ccedil;os quer p&uacute;blicos quer em exposi&ccedil;&otilde;es com a aspira&ccedil;&atilde;o m&aacute;xima de criar pensamento cr&iacute;tico individual massificado. A arte urbana lan&ccedil;an</span><a style=\"font-size: 10pt; line-height: 150%; text-align: justify;\" name=\"_GoBack\"></a><span style=\"font-size: 10pt; line-height: 150%; text-align: justify;\">do controv&eacute;rsia pol&iacute;tica como uma arma para grandes mudan&ccedil;as sociais. Como a arte deveria ser: mordaz, atenta, controversa e actual.</span></p>\r\n<p class=\"MsoNormal\" style=\"text-align: justify; line-height: 150%;\"><span style=\"font-size: 10pt; line-height: 150%;\" lang=\"PT\">Sem mais nem menos.</span></p>", 
+            "video": "", 
+            "authors": "Miguel Januario", 
+            "duration": "16:00:00", 
+            "is_public": true, 
+            "slug": "maismenos", 
+            "opening_night": "2012-04-01"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "production.production", 
+        "fields": {
+            "kind": null, 
+            "subtitle": "Ou sobre areia e actores", 
+            "title": "Reboloi\u00e7os ao arrepio", 
+            "is_staging": false, 
+            "poster": 27, 
+            "company": 1, 
+            "images": [
+                47, 
+                26, 
+                18, 
+                14
+            ], 
+            "synopsis": "<p>&Eacute; p&aacute;, h&aacute; muita areia, e umas chaleiras, e depois eles n&atilde;o deixam que os outros falem e tiram os macacos aos narizes uns dos outros e depois h&aacute; a adriana (ele n&atilde;o est&aacute; bem)</p>\r\n<p>e a outra, quer dizer, aquilo de esperar um bocadinho, s&oacute; mais um bocadinho, e chove ch&aacute; de vez em quando e depois h&aacute; o baloi&ccedil;o.</p>", 
+            "video": "", 
+            "authors": "", 
+            "duration": null, 
+            "is_public": true, 
+            "slug": "reboloicos-ao-arrepio", 
+            "opening_night": "2011-10-10"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "production.presentation", 
+        "fields": {
+            "event": null, 
+            "date_time": "2012-04-28 19:00:00", 
+            "_order": 0, 
+            "venue": 7, 
+            "slug": "arquente-galeria-arco-2012-04-28-190000", 
+            "production": 12, 
+            "video": "", 
+            "images": [], 
+            "obs": ""
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "production.presentation", 
+        "fields": {
+            "event": 6, 
+            "date_time": "2012-04-01 16:00:00", 
+            "_order": 0, 
+            "venue": 7, 
+            "slug": "arquente-galeria-arco-2012-04-01-160000", 
+            "production": 8, 
+            "video": "", 
+            "images": [], 
+            "obs": ""
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "production.presentation", 
+        "fields": {
+            "event": null, 
+            "date_time": "2012-05-23 00:28:52", 
+            "_order": 0, 
+            "venue": 7, 
+            "slug": "arquente-galeria-arco-2012-05-23-002852", 
+            "production": 28, 
+            "video": "", 
+            "images": [], 
+            "obs": ""
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "production.event", 
+        "fields": {
+            "website": "http://maismenos.net/", 
+            "synopsis": "<p><span style=\"font-size: 10pt; line-height: 150%; text-align: justify;\">MAISMENOS &eacute; a marca, ou anti-marca, de um designer que a certo ponto se questionou qual o papel do designer/artista numa sociedade perversamente consumista e socialmente desantenta. Miguel Janu&aacute;rio faz nascer em 2005 um projecto de interven&ccedil;&atilde;o e cr&iacute;tica social onde se permite e nos permite, contestar um mundo de convic&ccedil;&otilde;es question&aacute;veis. MAISMENOS apresenta-se</span><span style=\"font-size: 10pt; line-height: 150%; text-align: justify;\">&nbsp; </span><span style=\"font-size: 10pt; line-height: 150%; text-align: justify;\">em espa&ccedil;os quer p&uacute;blicos quer em exposi&ccedil;&otilde;es com a aspira&ccedil;&atilde;o m&aacute;xima de criar pensamento cr&iacute;tico individual massificado. A arte urbana lan&ccedil;an</span><a style=\"font-size: 10pt; line-height: 150%; text-align: justify;\" name=\"_GoBack\"></a><span style=\"font-size: 10pt; line-height: 150%; text-align: justify;\">do controv&eacute;rsia pol&iacute;tica como uma arma para grandes mudan&ccedil;as sociais. Como a arte deveria ser: mordaz, atenta, controversa e actual. Sem mais nem menos.&nbsp;</span></p>", 
+            "title": "\u00b1 MAISMENOS \u00b1", 
+            "producer": 3, 
+            "year": 2012
+        }
+    }
+]

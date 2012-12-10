@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{% load content_tags i18n %}
+{%block head_title%}{{object.title}}{%endblock%}
+
+{%block illustration%}{%get_illustration object as ill%}{{ill}}{%endblock%}
+
+{% block breadcrumbs%}
+{%for elder in object.get_ancestors %}\ <a href="{% url article_detail elder.slug%}" title="{{elder.title}}">{%firstof elder.short_title elder.title%}</a>{%endfor%}
+{%endblock%}
+
+{%block rightside%}
+{%for child in object.public_children%}
+{%if forloop.first%}<h2>{% trans 'Other articles'%}</h2><ul>{%endif%}
+<li><a href="{% url article_detail child.slug%}">{{child.short_title}}</a></li>
+{%if forloop.last%}</ul>{%endif%}
+{%endfor%}
+{%endblock%}
+
+{% block extrahead%}
+{{block.super}}
+{% ifnotequal object.images.all.count 0%}<link href="/sitemedia/css/slimbox2.css" rel="stylesheet" type="text/css" />
+{%endifnotequal%}
+{%endblock%}
+
+{%block title%}{{object.title}}{%endblock%}
+
+{%block images%}{%for img in object.images.all%}<a href="{{img.get_display_url}}" title="{{img.title}}" rel="lightbox_grp"><img src="{{img.get_thumbnail_url}}" /></a>
+{%endfor%}{%endblock%}
+
+{%block content%}{%split_text object.body as columns%}
+{%for column in columns%}<div>{{column|safe}}</div>{%endfor%}
+{%endblock%}
+
+{%block extrafoot%}
+{% ifnotequal object.images.all.count 0 %}
+<script type="text/javascript" src="/sitemedia/js/jquery.cycle.lite.min.js"></script>
+<script type="text/javascript" src="/sitemedia/js/slimbox2.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){$('.illustration').cycle({pause:1,timeout:10000,speed:2000}); });
+</script>
+{%endifnotequal%}
+{{block.super}}
+{%endblock%}

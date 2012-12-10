@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{% load content_tags i18n %}
+{%block head_title%}{{object.title}}{%endblock%}
+{%block illustration%}{%get_illustration object as ill%}{{ill}}{%endblock%}
+{%block rightside%}
+{%for child in object.public_children%}
+{%if forloop.first%}<h2>{% trans 'Other articles'%}</h2><ul>{%endif%}
+<li><a href="{% url article_detail child.slug%}">{{child.short_title}}</a></li>
+{%if forloop.last%}</ul>{%endif%}
+{%endfor%}
+{%endblock%}
+{%block content%}
+<h1>{{object.title}}</h1>
+{{object.body|safe}}
+{%endblock%}

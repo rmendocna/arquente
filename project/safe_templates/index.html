@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{%block illustration%}{%spaceless%}
+{%if highlight.illustration%}background-image:url({{highlight.illustration.get_wide_url}}){%else%}{{block.super}}{%endif%}  
+{%endspaceless%}{%endblock%}
+
+{%block breadcrumbs%}{%endblock%}
+
+{%block content%}
+<h2>{{highlight.title}}</h2>
+{{highlight.body|safe}}
+{%for article in news%}
+{%if forloop.first%}<h3><a href="{% url news_list%}">{%trans 'News'%}</a></h3>{%endif%}
+<h2><a href="{% url news_detail article.slug%}">{{article.headline}}</a></h2>
+{{article.body|safe|truncatewords_html:"40"}}
+{%endfor%}
+{%endblock%}

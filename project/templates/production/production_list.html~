@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+{%load i18n%}
+{%block headtitle%}{% trans "Productions"%}{%endblock%}
+{%block content%}
+<h1>{% trans "Productions"%}</h1>
+{% for object in object_list%}
+{%ifnotequal object.company.id 1%}<h3 style="float:right;display:block">{{object.company}}</h3>{%endifnotequal%}
+<h2><a href="{% url production_detail object.slug%}">{{object.title}}</a></h2>
+<div class="poster"><a href="{% url production_detail object.slug%}"><img src="{{object.poster.get_thumbnail_url}}" alt="{% firstof object.poster.caption object.title%}" /></a></div>
+{{object.synopsis|safe|truncatewords_html:"50"}}
+
+{%endfor%}
+{%endblock%}

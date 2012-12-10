@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%load i18n%}
+{%block headtitle%}{% trans "News"%}{%endblock%}
+{%block extrahead%}<style type="text/css">
+#header {height: 100px;}
+#scrollable {height: 230px;}
+</style>{%endblock%}
+{%block title%}{% trans "News"%}{%endblock%}
+{%block images%}{% for object in object_list%}{% if object.images.all.0 %}{% with object.images.all.0 as img%}<a href="{{img.get_display_url}}" title="{{img.title}}" rel="lightbox_grp"><img src="{{img.get_thumbnail_url}}" /></a>
+{%endwith%}{%endif%}{%endfor%}{%endblock%}
+{%block content%}
+{% for object in object_list%}
+<div>{{object.date_pub|date:"M d"}}<h2><a href="{% url news_detail slug=object.slug %}">{{object.headline}}</a></h2>
+{% firstof object.summary object.body|safe|truncatewords_html:"50" %}</div>{%endfor%}
+{%endblock%}
