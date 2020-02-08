@@ -123,6 +123,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 MAPBOX_TOKEN = 'pk.eyJ1Ijoicm1lbmRvIiwiYSI6ImNrM3Zvam5lMjBvaHAzbXE4Y2IzY3lqeXoifQ.7-9CXq_EgCcArICgOcXu6Q'
+MAPBOX_KEY = 'pk.eyJ1Ijoicm1lbmRvIiwiYSI6ImNrM3Zvam5lMjBvaHAzbXE4Y2IzY3lqeXoifQ.7-9CXq_EgCcArICgOcXu6Q'
 
 try:
     from .localsettings import *

@@ -1,10 +1,23 @@
 from django import forms
-import models
 
-class PresentationInlineAdminForm(forms.ModelForm):
+from . import models
+
+from mapbox_location_field.widgets import MapAdminInput
+
+# class PresentationInlineAdminForm(forms.ModelForm):
+#     class Meta:
+#         model = models.Presentation
+#         widgets = {
+#             'modifier':forms.HiddenInput(),
+#             'modified': forms.HiddenInput(),
+#         }
+
+
+class PlaceForm(forms.ModelForm):
+
     class Meta:
-        model = models.Presentation
+        model = models.Place
         widgets = {
-            'modifier':forms.HiddenInput(),
-            'modified': forms.HiddenInput(),
+            'place': MapAdminInput()
         }
+        exclude = []

@@ -1,0 +1,7 @@
+{% extends 'admin/change_form.html' %}
+{% load mapbox_location_field_tags %}
+
+{% block extrastyle %}{{ block.super }}
+    {% location_field_includes %}
+    {% include_jquery %}
+{% endblock %}
