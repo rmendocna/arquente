@@ -1,10 +1,6 @@
-# Django settings for almasrah project.
 import os
-import django
-# calculated paths for django and the site
-# used as starting points for various other paths
-DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -16,37 +12,23 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'arquente',                      # Or path to database file if using sqlite3.
-        'USER': 'ceao',                      # Not used with sqlite3.
-        'PASSWORD': 'c340',                  # Not used with sqlite3.
-        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        'OPTIONS': {"autocommit": True,}, 
-        }, 
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'arquente',
+        'USER': 'ceao',
+        'PASSWORD': 'c340',
+        },
 }
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
 TIME_ZONE = 'Europe/Lisbon'
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'pt-pt'
 
 SITE_ID = 1
 
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
-USE_I18N = False#True
+USE_I18N = True
 
 LOCALES_PATH = (
-  os.path.join(SITE_ROOT,'locale')
+  os.path.join(BASE_PATH, 'locale')
 )
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
