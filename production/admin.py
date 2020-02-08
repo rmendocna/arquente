@@ -1,8 +1,9 @@
 from django.contrib import admin
 
+from mptt.admin import MPTTModelAdmin
 from reversion.admin import VersionAdmin
 
-from .models import Apresentacao, Evento, Local, Participacao, Pessoa, Producao
+from .models import Presentation, Event, Place, Participation, Person, Production
 
 
 # class SponsoringInlineAdmin(generic.GenericTabularInline):
@@ -10,13 +11,13 @@ from .models import Apresentacao, Evento, Local, Participacao, Pessoa, Producao
 #     fields = ('support_type', 'sponsor', 'weight')
 #
 
-@admin.register(Pessoa)
-class PessoaAdmin(VersionAdmin):
+@admin.register(Person)
+class PersonAdmin(VersionAdmin):
     pass
 
 
-@admin.register(Participacao)
-class ParticipacaoAdmin(VersionAdmin):
+@admin.register(Participation)
+class ParticipationAdmin(VersionAdmin):
     # list_display = ('name', 'is_artistic')
     # fieldsets = (
     #     ('', {'fields': (('name', 'weight'), 'is_artistic')},),
@@ -24,14 +25,14 @@ class ParticipacaoAdmin(VersionAdmin):
     pass
 
 
-@admin.register(Local)
-class LocalAdmin(VersionAdmin):
+@admin.register(Place)
+class PlaceAdmin(VersionAdmin):
     # list_display = ('name', 'address')
     pass
 
 
-class ApresentacaoInlineAdmin(admin.TabularInline):
-    model = Apresentacao
+class PresentationInlineAdmin(admin.TabularInline):
+    model = Presentation
     # form = PresentationInlineAdminForm
     # fields = ('date_time', 'venue', 'modifier', 'modified')
     # fk_name = 'production'
@@ -43,23 +44,23 @@ class ApresentacaoInlineAdmin(admin.TabularInline):
 #     fk_name = 'event'
 
 
-@admin.register(Producao)
-class ProducaoAdmin(VersionAdmin):
-    prepopulated_fields = {'slug': ('titulo',)}
+@admin.register(Production)
+class ProductionAdmin(VersionAdmin):
+    prepopulated_fields = {'slug': ('title',)}
     # list_display = ('title', 'company', 'is_staging', 'is_public')
     # fieldsets = (
     #     ('', ({'fields': (('title', 'is_staging', 'is_public'), ('subtitle', 'kind'), ('company', 'authors'),
     #                       ('opening_night', 'duration'), 'synopsis'), })),
     #     (_('Images'), ({'fields': ('poster', 'images', 'slug'), 'classes': ('collapse',)})),
     # )
-    inlines = (ApresentacaoInlineAdmin)
+    inlines = [PresentationInlineAdmin]
 
 
-@admin.register(Apresentacao)
-class ApresentacaoAdmin(VersionAdmin):
-    date_hierarchy = 'date_hora'
+@admin.register(Presentation)
+class PresentationAdmin(VersionAdmin):
+    date_hierarchy = 'date_time'
 
 
-@admin.register(Evento)
-class EventoAdmin(VersionAdmin):  # admin.ModelAdmin):#VersionBaseAdmin):
+@admin.register(Event)
+class EventAdmin(VersionAdmin, MPTTModelAdmin):
     pass

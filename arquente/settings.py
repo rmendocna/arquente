@@ -20,10 +20,19 @@ SECRET_KEY = '!_iin5^+_70b22d_i7)2ocm*6r&0b6w*l31=voq6-9uhat1z(='
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+SITE_ID = 1
 
-# Application definition
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'arquente',
+        'USER': 'cinema',
+        'PASSWORD': '5c0p3',
+    }
+}
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -31,10 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'ckeditor',
+    'mapbox_location_field',
+    'mptt',
     'photologue',
     'sortedm2m',
+    'reversion',
+
     'production',
 ]
 
@@ -97,9 +111,9 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-LOCALE_PATHS = (
+LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale')
-)
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -107,6 +121,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/media/'
+
+MAPBOX_TOKEN = 'pk.eyJ1Ijoicm1lbmRvIiwiYSI6ImNrM3Zvam5lMjBvaHAzbXE4Y2IzY3lqeXoifQ.7-9CXq_EgCcArICgOcXu6Q'
 
 try:
     from .localsettings import *

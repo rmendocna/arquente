@@ -1,5 +1,5 @@
 from django import template
-from project.production.models import Production
+from production.models import Production
 
 register = template.Library()
 

@@ -3,33 +3,35 @@ from django.utils.translation import ugettext_lazy as _
 
 from ckeditor.fields import RichTextField
 from mapbox_location_field.models import LocationField
+from mptt.models import MPTTModel, TreeForeignKey
 from photologue.models import Gallery, Photo
 
 
-class Pessoa(models.Model):
-    nome = models.CharField(max_length=100)
+class Person(models.Model):
+    first_name = models.CharField('Nome', max_length=30)
+    last_name = models.CharField('Sobrenome', max_length=30)
     email = models.EmailField(blank=True)
     biosketch = RichTextField(blank=True)
-    foto = models.ForeignKey(Photo, blank=True, null=True)
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE, verbose_name='Foto', blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = 'Pessoas'
+        verbose_name = 'Pessoa'
 
     def __str__(self):
-        return self.nome
+        return self.name
 
 
-class Local(models.Model):
-    name = models.CharField(max_length=100)
-    local = LocationField()
-    foto = models.ForeignKey(Photo, blank=True, null=True)
+class Place(models.Model):
+    name = models.CharField('Name', max_length=100)
+    place = LocationField('Local')
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE, verbose_name='Foto', blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = 'Lugares'
+        verbose_name = 'Local'
+        verbose_name_plural = 'Locais'
 
     def __str__(self):
-        return self.nome
-
+        return self.name
 
 #
 # Tipo_patrocinio (
@@ -125,7 +127,7 @@ class Local(models.Model):
 #     def __unicode__(self):
 #         return u"%s" % self.name
 
-GENERO_OPCOES = (
+GENRE_CHOICES = (
     ('performance', 'Performance',),
     ('theatre', 'Teatro'),
     ('dance', 'Dança'),
@@ -133,7 +135,7 @@ GENERO_OPCOES = (
     ('theatre-dance', 'Teatro-dança')
 )
 
-PAPEL_OPCOES = (
+ROLE_CHOICES = (
     ('operacao', 'Operacao'),
     ('cenografia', 'Cenografia'),
     ('coreografia', 'Coreografia'),
@@ -141,26 +143,27 @@ PAPEL_OPCOES = (
     ('desenho-luz', 'Desenho de Luz'),
     ('desenho-som', 'Desenho de Som'),
     ('direcao', 'Direção'),
-    ('direcao-producao', 'Direção de Produção'),
+    ('direcao-production', 'Direção de Produção'),
     ('interpretacao', 'Interpretação'),
     ('assistente-direcao', 'Assistente de Direcão'),
 )
 
 
-class Producao(models.Model):
-    em_cena = models.BooleanField(blank=True)
-    titulo = models.CharField(max_length=255)
-    subtitulo = models.CharField(max_length=255, blank=True,
-                                 help_text='Baseado no conto de | Sobre piolhos e actores | A verdadeira historia d...')
+class Production(models.Model):
+    is_staging = models.BooleanField('Em cena', blank=True)
+    title = models.CharField('Título', max_length=255)
+    subtitle = models.CharField('Sub-título', max_length=255, blank=True,
+                                help_text='Baseado no conto de | Sobre piolhos e actores | A verdadeira historia d...')
     slug = models.SlugField(max_length=255, blank=True)
-    poster = models.ForeignKey(Photo, null=True, blank=True)
-    galeria = models.ForeignKey(Gallery, verbose_name=_('Images'), null=True, blank=True)
-    video = models.URLField(help_text="youtube, vimeo, etc", blank=False)
+    poster = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
+    gallery = models.ForeignKey(Gallery, verbose_name='Galeria', on_delete=models.CASCADE, null=True, blank=True)
+    video = models.URLField('Vídeo', help_text="youtube, vimeo, etc", blank=False)
     # sponsors = generic.GenericRelation(Sponsoring)
-    duracao = models.TimeField("Duração", null=True, blank=True)
-    autores = models.CharField(max_length=255, blank=True)
-    genero = models.CharField(null=True, blank=True, choices=GENERO_OPCOES)
-    sinopse = RichTextField(_("Synopsis"), blank=True)
+    duration = models.TimeField("Duração", null=True, blank=True)
+    authors = models.CharField('Autores', max_length=255, blank=True)
+    genre = models.CharField('Género', max_length=2, null=True, blank=True, choices=GENRE_CHOICES)
+    synopsys = RichTextField("Sinopse", blank=True)
+    credits = models.ManyToManyField(Person, verbose_name='Ficha Técnica', through='production.Participation')
 
     class Meta:
         verbose_name = "Produção"
@@ -170,52 +173,49 @@ class Producao(models.Model):
     def __str__(self):
         return self.title
 
-    @models.permalink
-    def get_absolute_url(self):
-        pass
 
-
-class Participacao(models.Model):
-    person = models.ForeignKey(Pessoa)
-    production = models.ForeignKey(Producao)
-    papel = models.CharField(choices=PAPEL_OPCOES)
-    peso = models.PositiveSmallIntegerField(_("Weight"), blank=True)
+class Participation(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    production = models.ForeignKey(Production, on_delete=models.CASCADE)
+    role = models.CharField(choices=ROLE_CHOICES, max_length=50)
+    weight = models.PositiveSmallIntegerField(_("Weight"), blank=True)
 
     class Meta:
-        ordering = ('weight', 'name')
+        ordering = ('production', 'weight', 'person')
         verbose_name = 'Participação'
         verbose_name_plural = 'Participações'
 
     def __str__(self):
-        return "%s, %s, %s" % (self.pessoa, self.get_papel_display(), self.producao)
+        return "%s, %s, %s" % (self.person, self.get_role_display(), self.production)
 
     def save(self, *args, **kwargs):
         if self.weight in ['', None]:
-            weight_list = Participacao.objects.values_list('weight', flat=True).order_by('-weight')
+            weight_list = Participation.objects.values_list('weight', flat=True).order_by('-weight')
             try:
                 weight = weight_list[0] + 1
             except:
                 weight = 1
             self.weight = weight
-        super(Participacao, self).save(*args, **kwargs)
+        super(Participation, self).save(*args, **kwargs)
 
 
-class Apresentacao(models.Model):
-    producao = models.ForeignKey(Producao, related_name="apresentacoes")
-    data_hora = models.DateTimeField()
-    local = models.ForeignKey(Local)
-    galeria = models.ForeignKey(null=True, blank=True)
+class Presentation(models.Model):
+    production = models.ForeignKey(Production, on_delete=models.CASCADE, related_name="presentations")
+    date_time = models.DateTimeField()
+    place = models.ForeignKey(Place, on_delete=models.CASCADE, null=True, blank=True)
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, null=True, blank=True)
     # sponsors = generic.GenericRelation(Sponsoring)
-    obs = RichTextField(blank=True)
+    notes = RichTextField(blank=True)
     video = models.URLField(help_text="youtube, vimeo, etc")
 
     class Meta:
+        verbose_name = "Apresetação"
         verbose_name_plural = "Apresentações"
-        order_with_respect_to = 'producao'
-        ordering = ('-data_time',)
+        # order_with_respect_to = 'production'
+        ordering = ('-date_time',)
 
     def __str__(self):
-        return '%s | %s | %s' % (self.producao, self.data_hora, self.local)
+        return '%s | %s | %s' % (self.production, self.date_time, self.place)
 
 
 # class Part(models.Model):
@@ -239,23 +239,24 @@ class Apresentacao(models.Model):
 #         return s
 
 
-class Evento(models.Model):
-    data_hora = models.DateTimeField(blank=True)
-    titulo = models.CharField(_("Title"), max_length=200, blank=True)
+class Event(MPTTModel):
+    date_time = models.DateTimeField(blank=True)
+    title = models.CharField('Título', max_length=200, blank=True)
     # producer = models.ForeignKey(Entity, null=True)
-    sinopse = RichTextField(blank=True)
+    synopsys = RichTextField(blank=True)
     # sponsors = generic.GenericRelation(Sponsoring)
     website = models.URLField(blank=True)
-    ascendente = models.ForeignKey('self', null=True, blank=True)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     # presentations = models.ManyToManyField(Presentation, null=True,  blank=True, through='EventPresentation')
 
     class Meta:
-        ordering = ('data_hora', 'titulo')
+        ordering = ('date_time', 'title')
+        verbose_name = 'Evento'
 
     def get_title(self):
-        if not self.title and self.ascendente:
-            return self.ascendente.title
+        if not self.title and self.parent:
+            return self.parent.title
         else:
             return self.title
 
