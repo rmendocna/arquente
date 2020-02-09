@@ -9,7 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-
+    {% block  extrahead %}
+    {% endblock %}
     <title>Hello, world!</title>
   </head>
   <body>
@@ -17,8 +18,8 @@
     <nav class="navbar navbar-expand-lg navbar-light static-top">
       <div class="container">
         <a class="navbar-brand" href="#">
-            <img class="d-inline d-xl-none" src="{% static 'img/logo.png' %}" alt="ArQuente">
-            <img class="d-none d-xl-inline" src="{% static 'img/logo_wide.png' %}" alt="ArQuente">
+            <img class="d-inline d-lg-none" src="{% static 'img/logo.png' %}" alt="ArQuente">
+            <img class="d-none d-lg-inline" src="{% static 'img/logo_wide.png' %}" alt="ArQuente">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -29,10 +30,10 @@
               <a class="nav-link" href="#">Concertos ao Entardecer</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Criações</a>
+              <a class="nav-link" href="{% url 'prod_list' %}">Criações</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Exposições</a>
+              <a class="nav-link" href="#">Eventos</a>
             </li>
           </ul>
         </div>

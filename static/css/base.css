@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'AdventPro-SemiBold';
+    src:url('AdventPro-SemiBold.ttf.woff') format('woff'),
+        url('AdventPro-SemiBold.ttf.svg#AdventPro-SemiBold') format('svg'),
+        url('AdventPro-SemiBold.ttf.eot'),
+        url('AdventPro-SemiBold.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AdventPro-Regular';
+    src:url('AdventPro-Regular.ttf.woff') format('woff'),
+        url('AdventPro-Regular.ttf.svg#AdventPro-Regular') format('svg'),
+        url('AdventPro-Regular.ttf.eot'),
+        url('AdventPro-Regular.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, .navbar-nav {
+   font-family: 'AdventPro-SemiBold';
+}
+.navbar-nav {
+    font-size: 1.3rem
+}
+body {
+    font-family: 'AdventPro-Regular';
+    font-size: 1.1rem;
+}

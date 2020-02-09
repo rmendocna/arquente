@@ -1,1 +1,31 @@
 {% extends 'production/base.html' %}
+
+{% block extrahead %}
+    {{ block.super }}
+{% endblock %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    {% for prod in object_list %}
+        {% ifchanged prod.is_staging %}
+    <h1 class="mt-4">{% if prod.is_staging %}Em cena{% else %}Arquivo{% endif %}</h1>
+        {% endifchanged %}
+    <div class="row">
+        {% if prod.poster %}
+        <div class="col-sm-6 order-{% cycle 1 2 %}">
+            <a href="#">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="{{ prod.poster.get_carousel_url }}" alt="{{ prod.title }}">
+            </a>
+        </div>
+        {% endif %}
+        <div class="col-sm-{% if prod.poster %}6{% else %}12{% endif %} order-{% cycle 2 1 %}">
+            <h2>{{ prod.title }}</h2>
+            {% if prod.subtitle %}<h4 class="text-muted">{{ prod.subtitle }}</h4>{% endif %}
+            {{ prod.synopsys|safe }}
+            <a class="btn btn-primary" href="#"></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -180,6 +180,7 @@ class Production(BaseModel):
     class Meta:
         verbose_name = "Produção"
         verbose_name_plural = "Producões"
+        ordering = ('-is_staging', '-presentations__date_time')
         # order_with_respect_to = 'presentations'
 
     def __str__(self):
