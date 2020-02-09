@@ -174,6 +174,7 @@ class Production(BaseModel):
     duration = models.TimeField("Duração", null=True, blank=True)
     authors = models.CharField('Autores', max_length=255, blank=True)
     genre = models.CharField('Género', max_length=20, null=True, blank=True, choices=GENRE_CHOICES)
+    leading = RichTextField('Intro', config_name='basic_ckeditor', blank=True)
     synopsys = RichTextField("Sinopse", blank=True)
     credits = models.ManyToManyField(Person, verbose_name='Ficha Técnica', through='production.Participation')
 

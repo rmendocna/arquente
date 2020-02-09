@@ -1,6 +1,6 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
+localsettings.py
 pyvenv.cfg
 .idea

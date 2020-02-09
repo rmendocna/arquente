@@ -22,7 +22,7 @@
         <div class="col-sm-{% if prod.poster %}6{% else %}12{% endif %} order-{% cycle 2 1 %}">
             <h2>{{ prod.title }}</h2>
             {% if prod.subtitle %}<h4 class="text-muted">{{ prod.subtitle }}</h4>{% endif %}
-            {{ prod.synopsys|safe }}
+            {% firstof prod.leading|safe prod.synopsys|truncatewords_html:"100"|safe %}
             <a class="btn btn-primary" href="#"></a>
         </div>
     </div>
