@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from ckeditor.configs import DEFAULT_CONFIG
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'sortedm2m',
     'reversion',
 
+    'content',
     'production',
 ]
 
@@ -122,8 +124,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/media/'
 
-MAPBOX_TOKEN = 'pk.eyJ1Ijoicm1lbmRvIiwiYSI6ImNrM3Zvam5lMjBvaHAzbXE4Y2IzY3lqeXoifQ.7-9CXq_EgCcArICgOcXu6Q'
-MAPBOX_KEY = 'pk.eyJ1Ijoicm1lbmRvIiwiYSI6ImNrM3Zvam5lMjBvaHAzbXE4Y2IzY3lqeXoifQ.7-9CXq_EgCcArICgOcXu6Q'
+MAPBOX_TOKEN = MAPBOX_KEY = 'pk.eyJ1Ijoicm1lbmRvIiwiYSI6ImNrM3Zvam5lMjBvaHAzbXE4Y2IzY3lqeXoifQ.7-9CXq_EgCcArICgOcXu6Q'
+
+CKEDITOR_CONFIGS = {
+    'basic_ckeditor': {
+        'toolbar': 'Basic',
+        'height': 150,
+        'width': 400
+    },
+    "default": {
+        "removePlugins": ["stylesheetparser", "flash", "forms", "iframe", "iframedialog", "image", "image2", "language",
+                          "bbcode", "codesnippetgeshi", "devtools"]
+    }
+    # 'default': DEFAULT_CONFIG,
+}
 
 try:
     from .localsettings import *

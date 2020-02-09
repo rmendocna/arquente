@@ -21,3 +21,10 @@ class PlaceForm(forms.ModelForm):
             'place': MapAdminInput()
         }
         exclude = []
+
+
+class PresentationInlineForm(forms.ModelForm):
+
+    class Meta:
+        model = models.Presentation
+        exclude = ['video', 'gallery']

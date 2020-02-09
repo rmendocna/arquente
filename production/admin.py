@@ -3,7 +3,7 @@ from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
 from reversion.admin import VersionAdmin
 
-from .forms import PlaceForm
+from .forms import PlaceForm, PresentationInlineForm
 from .models import Presentation, Event, Place, Participation, Person, Production
 
 
@@ -26,14 +26,19 @@ class ParticipationAdmin(VersionAdmin):
     pass
 
 
+class ParticipationInline(admin.TabularInline):
+    model = Participation
+
+
 @admin.register(Place)
 class PlaceAdmin(VersionAdmin):
     # list_display = ('name', 'address')
     form = PlaceForm
 
 
-class PresentationInlineAdmin(admin.TabularInline):
+class PresentationInline(admin.TabularInline):
     model = Presentation
+    form = PresentationInlineForm
     # form = PresentationInlineAdminForm
     # fields = ('date_time', 'venue', 'modifier', 'modified')
     # fk_name = 'production'
@@ -54,7 +59,7 @@ class ProductionAdmin(VersionAdmin):
     #                       ('opening_night', 'duration'), 'synopsis'), })),
     #     (_('Images'), ({'fields': ('poster', 'images', 'slug'), 'classes': ('collapse',)})),
     # )
-    inlines = [PresentationInlineAdmin]
+    inlines = [ParticipationInline, PresentationInline]
 
 
 @admin.register(Presentation)

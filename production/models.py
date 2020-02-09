@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -7,7 +8,18 @@ from mptt.models import MPTTModel, TreeForeignKey
 from photologue.models import Gallery, Photo
 
 
-class Person(models.Model):
+class BaseMixin(object):
+    edited_on = models.DateTimeField(auto_now=True, blank=True)
+    edited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+
+
+class BaseModel(BaseMixin, models.Model):
+
+    class Meta:
+        abstract = True
+
+
+class Person(BaseModel):
     first_name = models.CharField('Nome', max_length=30)
     last_name = models.CharField('Sobrenome', max_length=30)
     email = models.EmailField(blank=True)
@@ -18,10 +30,10 @@ class Person(models.Model):
         verbose_name = 'Pessoa'
 
     def __str__(self):
-        return self.name
+        return '%s %s' % (self.first_name, self.last_name)
 
 
-class Place(models.Model):
+class Place(BaseModel):
     name = models.CharField('Name', max_length=100)
     place = LocationField('Local')
     photo = models.ForeignKey(Photo, on_delete=models.CASCADE, verbose_name='Foto', blank=True, null=True)
@@ -33,7 +45,7 @@ class Place(models.Model):
     def __str__(self):
         return self.name
 
-#
+
 # Tipo_patrocinio (
 # peso, *designacao ('apoios', 'patrocinio', 'em colaboracao com...', 'com apoio tecnico de','')
 # )
@@ -149,7 +161,7 @@ ROLE_CHOICES = (
 )
 
 
-class Production(models.Model):
+class Production(BaseModel):
     is_staging = models.BooleanField('Em cena', blank=True)
     title = models.CharField('Título', max_length=255)
     subtitle = models.CharField('Sub-título', max_length=255, blank=True,
@@ -157,7 +169,7 @@ class Production(models.Model):
     slug = models.SlugField(max_length=255, blank=True)
     poster = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
     gallery = models.ForeignKey(Gallery, verbose_name='Galeria', on_delete=models.CASCADE, null=True, blank=True)
-    video = models.URLField('Vídeo', help_text="youtube, vimeo, etc", blank=False)
+    video = models.URLField('Vídeo', help_text="youtube, vimeo, etc", blank=True)
     # sponsors = generic.GenericRelation(Sponsoring)
     duration = models.TimeField("Duração", null=True, blank=True)
     authors = models.CharField('Autores', max_length=255, blank=True)
@@ -174,7 +186,7 @@ class Production(models.Model):
         return self.title
 
 
-class Participation(models.Model):
+class Participation(BaseModel):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     production = models.ForeignKey(Production, on_delete=models.CASCADE)
     role = models.CharField(choices=ROLE_CHOICES, max_length=50)
@@ -199,17 +211,17 @@ class Participation(models.Model):
         super(Participation, self).save(*args, **kwargs)
 
 
-class Presentation(models.Model):
+class Presentation(BaseModel):
     production = models.ForeignKey(Production, on_delete=models.CASCADE, related_name="presentations")
     date_time = models.DateTimeField()
     place = models.ForeignKey(Place, on_delete=models.CASCADE, null=True, blank=True)
     gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, null=True, blank=True)
     # sponsors = generic.GenericRelation(Sponsoring)
-    notes = RichTextField(blank=True)
-    video = models.URLField(help_text="youtube, vimeo, etc")
+    notes = RichTextField(blank=True, config_name='basic_ckeditor')
+    video = models.URLField(help_text="youtube, vimeo, etc", blank=True)
 
     class Meta:
-        verbose_name = "Apresetação"
+        verbose_name = "Apresentação"
         verbose_name_plural = "Apresentações"
         # order_with_respect_to = 'production'
         ordering = ('-date_time',)
@@ -239,7 +251,7 @@ class Presentation(models.Model):
 #         return s
 
 
-class Event(MPTTModel):
+class Event(BaseMixin, MPTTModel):
     date_time = models.DateTimeField(blank=True)
     title = models.CharField('Título', max_length=200, blank=True)
     # producer = models.ForeignKey(Entity, null=True)
