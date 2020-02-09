@@ -10,7 +10,7 @@ from photologue.models import Gallery, Photo
 
 class BaseMixin(object):
     edited_on = models.DateTimeField(auto_now=True, blank=True)
-    edited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+    edited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, editable=False)
 
 
 class BaseModel(BaseMixin, models.Model):
@@ -173,7 +173,7 @@ class Production(BaseModel):
     # sponsors = generic.GenericRelation(Sponsoring)
     duration = models.TimeField("Duração", null=True, blank=True)
     authors = models.CharField('Autores', max_length=255, blank=True)
-    genre = models.CharField('Género', max_length=2, null=True, blank=True, choices=GENRE_CHOICES)
+    genre = models.CharField('Género', max_length=20, null=True, blank=True, choices=GENRE_CHOICES)
     synopsys = RichTextField("Sinopse", blank=True)
     credits = models.ManyToManyField(Person, verbose_name='Ficha Técnica', through='production.Participation')
 

@@ -1,24 +1,41 @@
-{%extends 'base.html'%}
-{% load content_tags%}
-{% block extrahead %}
-{% ifnotequal highlight.images.all.count 0%}<link href="/sitemedia/css/slimbox2.css" rel="stylesheet" type="text/css" />
-{%endifnotequal%}
-{%endblock%}
-{%block title%}{{highlight.title}}{%endblock%}
-{%block leading%}{{highlight.leading|safe}}{%endblock%}
-{%block images%}{%for img in highlight.images.all%}<a href="{{img.get_display_url}}" title="{{img.title}}" rel="lightbox_grp"><img src="{{img.get_thumbnail_url}}" alt="{{img.title}}" /></a>{%endfor%}{%endblock%}
-{% block content%}
-{%split_text highlight.body as columns%}
-{%for column in columns%}<div>{{column|safe}}</div>{%endfor%}
-{%endblock%}
+{% extends 'base.html' %}
 
-{%block extrafoot%}
-{% ifnotequal highlight.images.all.count 0%}
-<script type="text/javascript" src="/sitemedia/js/jquery.cycle.lite.min.js"></script>
-<script type="text/javascript" src="/sitemedia/js/slimbox2.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){$('.illustration').cycle({pause:1,timeout:10000,speed:2000}); });
-</script>
-{%endifnotequal%}
-{{block.super}}
-{%endblock%}  
+{% block title %}{% endblock %}
+
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    {% if count > 1 %}
+    <ol class="carousel-indicators">
+        {% for act in carousel %}
+      <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <div class="carousel-inner">
+      {% for act in carousel %}
+      <div class="carousel-item {% if forloop.first %} active{% endif %}">
+        <img class="d-block w-100" src="{% firstof act.poster.get_display_url act.photo.get_dispaly_url 'data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' %}" alt="{{ act.title }}">
+          <div class="carousel-caption text-left">
+            <h1>{{ act.title }}
+              {% if act.subtitle %}<br><small class="text-muted">{{ act.subtitle}}</small>{% endif %}
+            </h1>
+            {% if act.genre %}
+              <h5><i>{{ act.get_genre }}</i></h5>
+            {% endif %}
+            <p>{{ act.content }}</p>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% if count > 1 %}
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Pr&oacute;ximo</span>
+    </a>
+    {% endif %}
+</div>
+{% endblock %}

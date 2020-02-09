@@ -18,3 +18,8 @@ class ArticleAdmin(VersionBaseAdmin, MPTTModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('edited_by',)
     list_display = ('title', 'is_highlight')
+    fieldsets = (
+        ('', {
+            'fields': (('title', 'is_highlight'), ('short_title', 'image'), ('menu', 'parent', 'slug'), 'body')
+        }),
+    )

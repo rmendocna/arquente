@@ -24,13 +24,13 @@ class Article(MPTTModel):
     title = models.CharField('Título', max_length=128)
     short_title = models.CharField('Título abrev.', max_length=50, blank=True,
                                    help_text='Que aparece em listas. Reverte para as 3 primeiras palavras do título')
-    body = RichTextField('Text', help_text=mark_safe('Em caso de Copy+Paste, <b>copiar sempre de texto simples</b> '
-                                                     'e não directamente do `Word` ou da Internet'))
+    body = RichTextField('Texto', help_text=mark_safe('Em caso de Copy+Paste, <b>copiar sempre de texto simples</b> '
+                                                      'e não directamente do `Word` ou da Internet'))
     slug = models.SlugField(max_length=192, blank=True)
     image = models.ForeignKey(Photo, on_delete=models.CASCADE, verbose_name='Imagem', null=True, blank=True)
 
     edited_on = models.DateTimeField(auto_now=True, blank=True)
-    edited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+    edited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, editable=False)
 
     def __str__(self):
         return self.title
