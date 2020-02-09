@@ -3,4 +3,9 @@
 *.pyc
 localsettings.py
 pyvenv.cfg
+manage.py
 .idea
+media/*
+bin/*
+lib/*
+.DS_Store
