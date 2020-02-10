@@ -1,7 +1,16 @@
 from django import template
-from production.models import Production
+
+from production.models import Production, ROLE_CHOICES
 
 register = template.Library()
+
+ROLE_CHOICES_DICT = dict(ROLE_CHOICES)
+
+
+@register.filter()
+def role_display(role_id):
+    return ROLE_CHOICES_DICT.get(role_id, role_id)
+
 
 def checkBitsCount(bits,count):
     if len(bits) != count:

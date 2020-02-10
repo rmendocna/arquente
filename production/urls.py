@@ -18,6 +18,6 @@ urlpatterns = [
     path('on/', ListView.as_view(queryset=Production.objects.filter(is_staging=True)),
          name="prod_staging"),
     path('repertorio/', ListView.as_view(queryset=Production.objects.filter(is_staging=False)), name="prod_past"),
-    path('<slug:slug>/', DetailView.as_view(queryset=Production.objects.all()), name="prod_detail"),
-    path('', ListView.as_view(queryset=Production.objects.all()), name="prod_list"),
+    path('<slug:slug>/', DetailView.as_view(queryset=Production.objects.all()), name="prod-detail"),
+    path('', ListView.as_view(queryset=Production.objects.all()), name="prod-list"),
 ]

@@ -1,11 +1,5 @@
 {% extends 'base.html' %}
-{% block extrahead %}
-    {{ block.super }}
-<style>
-    .carousel .carousel-item { vertical-align: center; align-items: center; height: 400px; overflow-y: hidden }
-    .carousel img { margin: -10% 0 }
-</style>
-{% endblock %}
+
 {% block title %}{% endblock %}
 
 
@@ -29,7 +23,7 @@
             {% if act.genre %}
               <h5><i>{{ act.get_genre }}</i></h5>
             {% endif %}
-            <p>{{ act.content }}</p>
+            <div class="leading">{% firstof act.leading|safe  act.synopsys|truncatewords_html:"30"|safe acti.body|safe %}</div>
           </div>
       </div>
       {% endfor %}

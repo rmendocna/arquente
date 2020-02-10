@@ -1,48 +1,53 @@
-{%extends 'base.html'%}
-{%load i18n content_tags%}
-{%block headtitle%}{{object.title}}{%endblock%}
-{%block extra_head%}
-{% ifnotequal object.images.count 0%}
-<link href="/sitemedia/css/slimbox2.css" rel="stylesheet" type="text/css" />
-{%endifnotequal%}
-{%endblock%}
-{% block illustration%}{%if object.poster%}background-image:url({{object.poster.get_wide_url}}){%else%}{{block.super}}{%endif%}{%endblock%}
-{%block breadcrumbs%}\ <a href="{% url production_list%}">{%trans 'Productions'%}</a>{%endblock%}
-{%block rightside%}
-{% for show in object.presentations.all%}
-{%if forloop.first%}<h3>{%trans 'Upcoming Shows'%}</h3><ul>{%endif%}
-<li>{{show.venue}} | {{show.date_time|date:"j M, H\hi\m"}}</li>
-{%if forloop.last%}</ul>{%endif%}
-{%endfor%}
-{%endblock %}
-{%block content%}
-<h1>{{object.title}}</h1>
-{% for part in object.cast.all%}
-{%if part.role.is_artistic%}<img class="face" src="{{part.person.photo.get_face_url}}" alt="{{part.person.name}}"/>{%endif%}
-{%endfor%}
-{{object.synopsis|safe}}
-{% for img in object.images.all%}
-<a href="{{img.get_display_url}}" rel="lightbox_grp" title="{{img.title}}"><img src="{{img.get_mini_url}}" alt="{{img.title}}"/></a>
-{%endfor%}
-{#casts#}
-<h3>{%trans 'Casts and Credits'%}</h3>
-{%regroup object.cast.all by role as casts%}
-<dir>
-{%for cast in casts%}
-<strong>{{cast.grouper}}</strong>: {%for player in cast.list%}{%if not forloop.first%}, {%endif%}{{player.person}}{%endfor%}
-{%endfor%}
-</dir>
-{# sponsoring and support#}
-{%regroup object.sponsors.all by support_type as sponsorgroups%}
-{%for sg in sponsorgroups%}
-<div class="sponsor"><br />{{sg.grouper}}:<br />
-{%for spcr in sg.list%}<a target="_blank" href="{%firstof spcr.sponsor.website spcr.sponsor.venue.website '#' %}"><img src="{{spcr.sponsor.logo.get_logo1_url}}" alt="{{spcr.sponsor}}" /></a>{%endfor%}
+{% extends 'production/base.html' %}
+{% load i18n production_tags %}
+
+{% block headtitle %}{{object.title}}{% endblock %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+
+<div id="myCarousel" class="carousel slide mb-4" data-ride="carousel">
+    {% if object.gallery.photos.all|length > 1 %}
+    <ol class="carousel-indicators">
+        {% for img in object.gallery.photos.all %}
+        <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <div class="carousel-inner">
+        {% for img in object.gallery.photos.all %}
+        <div class="carousel-item {% if forloop.first %} active{% endif %}">
+            <img class="d-block w-100" src="{{ img.image.url }}" alt="{% firstof img.caption object.title %}">
+            <div class="carousel-caption text-left">
+                {% if img.caption %}<div class="leading">{{ img.caption }}</div>{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if count > 1 %}
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Pr&oacute;ximo</span>
+    </a>
+    {% endif %}
 </div>
-{%endfor%}
-{%endblock%}
-{%block extra_foot %}
-{% ifnotequal object.images.count 0%}
-<script type="text/javascript" src="/sitemedia/js/slimbox2.js"></script>
-{%endifnotequal%}
-{{block.super}}
-{%endblock %}
+<div class="row">
+    <div class="col-sm-6"><cite>{{ object.leading|safe }}</cite></div>
+    <div class="col-sm-6"><h3>Ficha técnica</h3>
+        {% regroup object.participation_set.all by role as cast %}
+        <dl>
+        {% for role in cast %}
+            <dt>{{ role.grouper|role_display }}</dt>
+            <dd>{% for part in role.list %}<span>{{ part.person.first_name }} {{ part.person.last_name }}</span>{% if not forloop.last %}, {% endif %}
+                {% endfor %}</dd>
+        {% endfor %}
+        </dl>
+    </div>
+</div>
+<div>{{ object.synopsys|safe }}</div>
+{% endblock %}

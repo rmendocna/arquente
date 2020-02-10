@@ -28,6 +28,7 @@ class ParticipationAdmin(VersionAdmin):
 
 class ParticipationInline(admin.TabularInline):
     model = Participation
+    readonly_fields = ['weight']
 
 
 @admin.register(Place)

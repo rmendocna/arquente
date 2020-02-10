@@ -9,7 +9,7 @@ from .models import Event, Production
 def index(request):
     from content.models import Article
     productions = Production.objects.filter(is_staging=True)
-    events = Event.objects.filter(date_time__gt=date.today()-timedelta(30))
+    events = Event.objects.filter(date_time__isnull=False, date_time__gt=date.today()-timedelta(30))
     carousel = list(chain(productions, events))
     context = dict(
         carousel=carousel,

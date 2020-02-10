@@ -147,18 +147,28 @@ GENRE_CHOICES = (
     ('theatre-dance', 'Teatro-dança')
 )
 
+EVENT_GENRE_CHOICES = (
+    ('concerto', 'Concerto',),
+    ('conferencia', 'Conferência'),
+    ('exposicao', 'Exposição'),
+    ('instalacao', 'Instalação'),
+    ('performance', 'Performance'),
+)
+
 ROLE_CHOICES = (
-    ('operacao', 'Operacao'),
-    ('cenografia', 'Cenografia'),
-    ('coreografia', 'Coreografia'),
     ('criacao', 'Criação'),
+    ('direcao', 'Direção'),
+    ('assistente-direcao', 'Assistente de Direção'),
+    ('coreografia', 'Coreografia'),
+    ('cenografia', 'Cenografia'),
     ('desenho-luz', 'Desenho de Luz'),
     ('desenho-som', 'Desenho de Som'),
-    ('direcao', 'Direção'),
-    ('direcao-production', 'Direção de Produção'),
+    ('operacao', 'Operacao'),
     ('interpretacao', 'Interpretação'),
-    ('assistente-direcao', 'Assistente de Direcão'),
+    ('direcao-production', 'Direção de Produção'),
 )
+
+ROLE_IDS = [x for (x, y) in ROLE_CHOICES]
 
 
 class Production(BaseModel):
@@ -192,7 +202,7 @@ class Participation(BaseModel):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     production = models.ForeignKey(Production, on_delete=models.CASCADE)
     role = models.CharField(choices=ROLE_CHOICES, max_length=50)
-    weight = models.PositiveSmallIntegerField(_("Weight"), blank=True)
+    weight = models.PositiveSmallIntegerField(_("Weight"), blank=True, help_text="Índice para ordenação em elenco")
 
     class Meta:
         ordering = ('production', 'weight', 'person')
@@ -204,12 +214,7 @@ class Participation(BaseModel):
 
     def save(self, *args, **kwargs):
         if self.weight in ['', None]:
-            weight_list = Participation.objects.values_list('weight', flat=True).order_by('-weight')
-            try:
-                weight = weight_list[0] + 1
-            except:
-                weight = 1
-            self.weight = weight
+            self.weight = ROLE_IDS.index(self.role)
         super(Participation, self).save(*args, **kwargs)
 
 
@@ -259,6 +264,7 @@ class Event(BaseMixin, MPTTModel):
     # producer = models.ForeignKey(Entity, null=True)
     synopsys = RichTextField(blank=True)
     # sponsors = generic.GenericRelation(Sponsoring)
+    genre = models.CharField('Género', max_length=20, null=True, blank=True, choices=EVENT_GENRE_CHOICES)
     website = models.URLField(blank=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
