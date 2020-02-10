@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mptt.admin import MPTTModelAdmin
+from mptt.admin import DraggableMPTTAdmin
 from reversion.admin import VersionAdmin
 
 from .forms import PlaceForm, PresentationInlineForm
@@ -69,5 +69,18 @@ class PresentationAdmin(VersionAdmin):
 
 
 @admin.register(Event)
-class EventAdmin(VersionAdmin, MPTTModelAdmin):
-    pass
+class EventAdmin(VersionAdmin, DraggableMPTTAdmin):
+    list_display = ['tree_actions', 'indented_title', 'genre', 'date_time']
+
+    fieldsets = (
+        ('', {
+            'fields': (('title', 'date_time'), ('genre', 'website'), ('slug', 'parent'))
+        }),
+        ('Media', {
+            'fields': ('poster', 'gallery', 'video'),
+            'classes': ('collapse',)
+        }),
+        ('Texto', {
+            'fields': ('leading', 'synopsys'),
+        })
+    )

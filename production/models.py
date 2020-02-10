@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
 from ckeditor.fields import RichTextField
@@ -259,30 +260,42 @@ class Presentation(BaseModel):
 
 
 class Event(BaseMixin, MPTTModel):
-    date_time = models.DateTimeField(blank=True)
-    title = models.CharField('Título', max_length=200, blank=True)
-    # producer = models.ForeignKey(Entity, null=True)
-    synopsys = RichTextField(blank=True)
-    # sponsors = generic.GenericRelation(Sponsoring)
-    genre = models.CharField('Género', max_length=20, null=True, blank=True, choices=EVENT_GENRE_CHOICES)
-    website = models.URLField(blank=True)
+    title = models.CharField('Título', max_length=200)
+    slug = models.SlugField(max_length=255, blank=True)
+    date_time = models.DateTimeField(null=True, blank=True)
+    genre = models.CharField('Género', max_length=20, choices=EVENT_GENRE_CHOICES)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+    website = models.URLField(blank=True)
+
+    poster = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
+    gallery = models.ForeignKey(Gallery, verbose_name='Galeria', on_delete=models.CASCADE, null=True, blank=True)
+    video = models.URLField('Vídeo', help_text="youtube, vimeo, etc", blank=True)
+
+    leading = RichTextField('Intro', config_name='basic_ckeditor', blank=True)
+    synopsys = RichTextField("Sinopse", blank=True)
 
     # presentations = models.ManyToManyField(Presentation, null=True,  blank=True, through='EventPresentation')
+    # producer = models.ForeignKey(Entity, null=True)
+    # sponsors = generic.GenericRelation(Sponsoring)
 
     class Meta:
-        ordering = ('date_time', 'title')
+        ordering = ('-date_time', 'title')
         verbose_name = 'Evento'
 
-    def get_title(self):
-        if not self.title and self.parent:
-            return self.parent.title
-        else:
-            return self.title
+    def get_title(self, incl=True):
+        ancestors = self.get_ancestors(include_self=incl).values_list('title', flat=True)
+        return ' - '.join(ancestors)
+
+    def get_parent_title(self):
+        return self.get_title(False)
 
     def __str__(self):
-        return self.get_title()
+        return self.title
 
+    def save(self):
+        if not self.slug:
+            self.slug = slugify(self.get_title())
+        super(Event, self).save()
 
 # class EventPresentation(models.Model):
 #    event = models.ForeignKey(Event)

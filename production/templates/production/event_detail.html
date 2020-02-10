@@ -1,0 +1,53 @@
+{% extends 'production/base.html' %}
+{% load i18n production_tags %}
+
+{% block headtitle %}{{object.title}}{% endblock %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+
+<div id="myCarousel" class="carousel slide mb-4" data-ride="carousel">
+    {% if object.gallery.photos.all|length > 1 %}
+    <ol class="carousel-indicators">
+        {% for img in object.gallery.photos.all %}
+        <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <div class="carousel-inner">
+        {% for img in object.gallery.photos.all %}
+        <div class="carousel-item {% if forloop.first %} active{% endif %}">
+            <img class="d-block w-100" src="{{ img.image.url }}" alt="{% firstof img.caption object.title %}">
+            <div class="carousel-caption text-left">
+                {% if img.caption %}<div class="leading">{{ img.caption }}</div>{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if count > 1 %}
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Pr&oacute;ximo</span>
+    </a>
+    {% endif %}
+</div>
+<div class="row">
+    <div class="col-sm-6"><cite>{{ object.leading|safe }}</cite></div>
+    <div class="col-sm-6"><h3>Ficha técnica</h3>
+        {% regroup object.participation_set.all by role as cast %}
+        <dl>
+        {% for role in cast %}
+            <dt>{{ role.grouper|role_display }}</dt>
+            <dd>{% for part in role.list %}<span>{{ part.person.first_name }} {{ part.person.last_name }}</span>{% if not forloop.last %}, {% endif %}
+                {% endfor %}</dd>
+        {% endfor %}
+        </dl>
+    </div>
+</div>
+<div>{{ object.synopsys|safe }}</div>
+{% endblock %}
