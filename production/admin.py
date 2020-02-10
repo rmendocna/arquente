@@ -53,12 +53,12 @@ class PresentationInline(admin.TabularInline):
 @admin.register(Production)
 class ProductionAdmin(VersionAdmin):
     prepopulated_fields = {'slug': ('title',)}
-    # list_display = ('title', 'company', 'is_staging', 'is_public')
-    # fieldsets = (
-    #     ('', ({'fields': (('title', 'is_staging', 'is_public'), ('subtitle', 'kind'), ('company', 'authors'),
-    #                       ('opening_night', 'duration'), 'synopsis'), })),
-    #     (_('Images'), ({'fields': ('poster', 'images', 'slug'), 'classes': ('collapse',)})),
-    # )
+    list_display = ('title', 'is_staging')
+    fieldsets = (
+        ('', ({'fields': (('title', 'is_staging'), ('subtitle', 'authors'), ('genre', 'duration'),
+                          ('leading', 'slug'), 'synopsys',), })),
+        ('Imagens', ({'fields': ('poster', 'gallery', 'video'), 'classes': ('collapse',)})),
+    )
     inlines = [ParticipationInline, PresentationInline]
 
 

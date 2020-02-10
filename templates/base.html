@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block  extrahead %}
     {% endblock %}
-    <title>Hello, world!</title>
+    <title>{% block headtitle %}ArQuente{% endblock %}</title>
   </head>
   <body>
   <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light static-top">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img class="d-inline d-lg-none" src="{% static 'img/logo.png' %}" alt="ArQuente">
             <img class="d-none d-lg-inline" src="{% static 'img/logo_wide.png' %}" alt="ArQuente">
         </a>
