@@ -1,5 +1,7 @@
+from datetime import datetime, timedelta
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
@@ -7,6 +9,10 @@ from ckeditor.fields import RichTextField
 from mapbox_location_field.models import LocationField
 from mptt.models import MPTTModel, TreeForeignKey
 from photologue.models import Gallery, Photo
+
+
+def two_months_ago():
+    return datetime.now() - timedelta(days=60)
 
 
 class BaseMixin(object):
@@ -194,6 +200,9 @@ class Production(BaseModel):
         verbose_name_plural = "Producões"
         ordering = ('-is_staging', '-presentations__date_time')
         # order_with_respect_to = 'presentations'
+
+    def get_absolute_url(self):
+        return reverse('prod-detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title

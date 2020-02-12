@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 
 {% block headtitle %}Eventos{%endblock%}
+
 {% block title %}Eventos{%endblock%}
 
 {% block content%}
@@ -24,4 +25,8 @@
     </div>
     {% endfor %}
 </div>
+<p>{{ is_past|yesno:"1,0" }}</p>
+{% if is_past %}
+<h3><a href="{% url 'prod-event-prev' %}">Arquivo</a></h3>
+{% endif %}
 {%endblock%}

@@ -28,6 +28,6 @@ body {
     font-size: 1.05rem;
 }
 /* carousel */
-.carousel .carousel-item { vertical-align: center; align-items: center; height: 400px; overflow-y: hidden }
+.carousel .carousel-item { vertical-align: center; align-items: center; height: 400px; overflow-y: hidden; text-shadow: 0 0 4px #222; }
 .carousel img { margin: -10% 0 }
 .leading { font-size: 1.05em; letter-spacing:.1rem; font-weight: 100; }

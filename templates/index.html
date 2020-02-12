@@ -4,7 +4,7 @@
 
 
 {% block content %}
-<div id="myCarousel" class="carousel slide mb-4" data-ride="carousel">
+<div id="myCarousel" class="carousel slide carousel-fade mb-4" data-ride="carousel">
     {% if count > 1 %}
     <ol class="carousel-indicators">
         {% for act in carousel %}
@@ -14,18 +14,18 @@
     {% endif %}
     <div class="carousel-inner">
       {% for act in carousel %}
-      <div class="carousel-item {% if forloop.first %} active{% endif %}">
+      <a href="{{ act.get_absolute_url }}" class="carousel-item {% if forloop.first %} active{% endif %}">
         <img class="d-block w-100" src="{% firstof act.poster.get_carousel_url act.photo.get_carousel_url 'data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' %}" alt="{{ act.title }}">
           <div class="carousel-caption text-left">
             <h1>{{ act.title }}
-              {% if act.subtitle %}<br><small class="text-muted">{{ act.subtitle}}</small>{% endif %}
+              {% if act.subtitle %}<br><small class="text-light">{{ act.subtitle}}</small>{% endif %}
             </h1>
             {% if act.genre %}
               <h5><i>{{ act.get_genre }}</i></h5>
             {% endif %}
             <div class="leading">{% firstof act.leading|safe  act.synopsys|truncatewords_html:"30"|safe acti.body|safe %}</div>
           </div>
-      </div>
+      </a>
       {% endfor %}
     </div>
     {% if count > 1 %}
