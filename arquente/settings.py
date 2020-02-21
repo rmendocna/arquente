@@ -119,7 +119,10 @@ STATICFILES_DIRS = [
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale')
 ]
-
+AUTHENTICATION_BACKENDS  = [
+    'django.contrib.auth.backends.ModelBackend',
+    'arquente.auth_backend.CustomUserModelBackend',
+]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
