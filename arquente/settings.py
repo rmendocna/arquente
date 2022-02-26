@@ -28,8 +28,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'arquente',
-        'USER': 'cinema',
-        'PASSWORD': '5c0p3',
+        'USER': 'arquente',
+        'PASSWORD': 'arquente',
     }
 }
 
@@ -64,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 ROOT_URLCONF = 'arquente.urls'
 
 TEMPLATES = [

@@ -13,7 +13,7 @@ urlpatterns = [
     path('photologue/', include('photologue.urls', namespace='photologue')),
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     # path('admin/filebrowser/', include('filebrowser.urls')),
-    path('admin/', admin.site.urls),
+    path('bastidores/', admin.site.urls),
     # path('arti/', include('content.urls')),
     path('prod/', include('production.urls')),
     path('', index, name="index"),
